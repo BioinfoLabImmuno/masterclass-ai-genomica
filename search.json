@@ -14,6 +14,153 @@
     "text": "Pacchetto completo\n\nScarica tutti i materiali BAM/IGV\n\n\n\nIGV\n\nreference.fasta\nreference.fasta.fai\nmasterclass.sorted.bam\nmasterclass.sorted.bam.bai\nmasterclass.vcf\n\n\n\nDati\n\nmasterclass.fastq\nground_truth.tsv\nclinical_context.tsv\n\n\n\nScript\n\nbwa_samtools.sh\n\n\n\nPresentazione\n\nSorgente Quarto RevealJS"
   },
   {
+    "objectID": "index.html#from-reads-to-interpretation",
+    "href": "index.html#from-reads-to-interpretation",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "From reads to interpretation",
+    "text": "From reads to interpretation"
+  },
+  {
+    "objectID": "index.html#qr-code-per-i-materiali",
+    "href": "index.html#qr-code-per-i-materiali",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "QR code per i materiali",
+    "text": "QR code per i materiali\n\n\n\n\nApri o scarica\nMateriali scaricabili\nFile inclusi:\n\nBAM + BAI\nFASTQ + reference FASTA\nVCF\nground truth\nscript BWA/SAMtools\n\n\n\nAprire questa slide all’inizio e far scansionare il QR code. I partecipanti devono scaricare almeno BAM, BAI e reference FASTA per IGV."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nAt the end of this masterclass you should be able to:\n\naudit an NGS call beyond raw VAF\ninterrogate BAM evidence in IGV\nrecognize a borderline low-VAF call\nintegrate purity, copy number and LOH\nseparate BRCA/HRD biology from germline/somatic origin\naudit LLM output using source-grounded evidence"
+  },
+  {
+    "objectID": "index.html#analytical-workflow",
+    "href": "index.html#analytical-workflow",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Analytical workflow",
+    "text": "Analytical workflow\nFASTQ\n  ↓\nAlignment\n  ↓\nBAM / BAI\n  ↓\nIGV visual audit\n  ↓\nVariant evidence\n  ↓\nVAF + QC\n  ↓\nCN / LOH / HRD context\n  ↓\nAI-assisted interpretation\n  ↓\nHuman verification"
+  },
+  {
+    "objectID": "index.html#igv-setup",
+    "href": "index.html#igv-setup",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "IGV setup",
+    "text": "IGV setup\nLoad in IGV:\ndata/reference.fasta\nalignments/masterclass.sorted.bam\nalignments/masterclass.vcf\nThen inspect:\n\ncoverage track\nmismatches\nbase quality\nmapping quality\nstrand distribution\nlocal context"
+  },
+  {
+    "objectID": "index.html#challenge-a-tp53",
+    "href": "index.html#challenge-a-tp53",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge A — TP53",
+    "text": "Challenge A — TP53\nHigh-confidence analytical call\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n100×\n\n\nREF\n58\n\n\nALT\n42\n\n\nVAF\n42%\n\n\nALT BQ\n40\n\n\nMAPQ\n60"
+  },
+  {
+    "objectID": "index.html#vaf-interpretation-trap",
+    "href": "index.html#vaf-interpretation-trap",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "VAF interpretation trap",
+    "text": "VAF interpretation trap"
+  },
+  {
+    "objectID": "index.html#challenge-b-pik3ca",
+    "href": "index.html#challenge-b-pik3ca",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge B — PIK3CA",
+    "text": "Challenge B — PIK3CA\nLow-VAF borderline call\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n200×\n\n\nREF\n190\n\n\nALT\n10\n\n\nVAF\n5%\n\n\nALT BQ\n16\n\n\nMAPQ\n60"
+  },
+  {
+    "objectID": "index.html#low-vaf-audit-checklist",
+    "href": "index.html#low-vaf-audit-checklist",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Low-VAF audit checklist",
+    "text": "Low-VAF audit checklist\nBefore accepting a low-VAF variant, review:\n\n\n\nbase quality\nmapping quality\nstrand balance\nposition in read\n\n\n\nlocal sequence context\nassay error profile\nduplicate / UMI behavior\nvalidated LOD"
+  },
+  {
+    "objectID": "index.html#challenge-c-brca1-loh-hrd",
+    "href": "index.html#challenge-c-brca1-loh-hrd",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge C — BRCA1 / LOH / HRD",
+    "text": "Challenge C — BRCA1 / LOH / HRD\n\n\n\nMetric\nValue\n\n\n\n\nREF\n30\n\n\nALT\n70\n\n\nVAF\n70%\n\n\nTumor purity\n65%\n\n\nLocal CN\n1\n\n\nLOH\npresent\n\n\nHRD\npositive, simulated assay"
+  },
+  {
+    "objectID": "index.html#brca1-interpretation-trap",
+    "href": "index.html#brca1-interpretation-trap",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "BRCA1 interpretation trap",
+    "text": "BRCA1 interpretation trap"
+  },
+  {
+    "objectID": "index.html#hrd-variant-confirmation",
+    "href": "index.html#hrd-variant-confirmation",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "HRD ≠ variant confirmation",
+    "text": "HRD ≠ variant confirmation\nHRD positivity is a genomic phenotype / assay result.\nIt does not analytically confirm:\n\nthe sequence variant\ngermline origin\npathogenicity\ncausality of this specific BRCA1 alteration"
+  },
+  {
+    "objectID": "index.html#prompt-a-unsafe-framing",
+    "href": "index.html#prompt-a-unsafe-framing",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Prompt A — unsafe framing",
+    "text": "Prompt A — unsafe framing\n\nThis ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.\nIs it germline and which PARP inhibitor should the patient receive?\n\nAudit the answer\nWhat is:\n\nobserved?\ninferred?\ninvented?"
+  },
+  {
+    "objectID": "index.html#prompt-b-constrained-context",
+    "href": "index.html#prompt-b-constrained-context",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Prompt B — constrained context",
+    "text": "Prompt B — constrained context\nUse only the evidence below.\n\nANALYTICAL:\n- BAM/IGV: 70 ALT / 100 total reads\n- VAF 70%\n- MAPQ 60\n- high ALT base quality\n\nTUMOR CONTEXT:\n- tumor purity 65%\n- local CN=1\n- LOH present\n- HRD positive, assay-specific\n\nReturn:\n1. observed analytical evidence\n2. compatible biological interpretations\n3. unsupported conclusions\n4. external sources required"
+  },
+  {
+    "objectID": "index.html#ai-audit-rubric",
+    "href": "index.html#ai-audit-rubric",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "AI audit rubric",
+    "text": "AI audit rubric\n\n\nA\nObserved analytical fact\n\nB\nSupported biological inference\n\nC\nNeeds external evidence\n\nD\nUnsupported / hallucinated"
+  },
+  {
+    "objectID": "index.html#would-you-sign-this",
+    "href": "index.html#would-you-sign-this",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Would you sign this?",
+    "text": "Would you sign this?\nCandidate AI sentence\n\n“Because BRCA1 VAF is 70% and HRD is positive, the variant is germline and the patient is automatically eligible for PARP inhibitor therapy.”"
+  },
+  {
+    "objectID": "index.html#reporting-language-safer-wording",
+    "href": "index.html#reporting-language-safer-wording",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Reporting language — safer wording",
+    "text": "Reporting language — safer wording\nAcceptable structure\n\nAnalytical result: what was observed\nBiological interpretation: what is compatible with the data\nLimitations: what is not established\nClinical correlation: what requires guideline/regulatory verification\n\n\n\n\n\n\n\nNote\n\n\nThe AI can draft; the professional must audit, edit and sign."
+  },
+  {
+    "objectID": "index.html#key-lesson-from-rag-oncology",
+    "href": "index.html#key-lesson-from-rag-oncology",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Key lesson from RAG oncology",
+    "text": "Key lesson from RAG oncology"
+  },
+  {
+    "objectID": "index.html#final-synthesis",
+    "href": "index.html#final-synthesis",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Final synthesis",
+    "text": "Final synthesis"
+  },
+  {
+    "objectID": "index.html#download-validation",
+    "href": "index.html#download-validation",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Download & validation",
+    "text": "Download & validation\n\nMateriali scaricabili\nValidazione dataset\n\nDirect URL\nhttps://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "References",
+    "text": "References\nSimon E, Swanson K, Zou J.\nLanguage models for biological research: a primer. Nature Methods, 2024.\nJun H, Tanaka Y, Johri S, et al.\nA context-augmented large language model for accurate precision oncology medicine recommendations. Cancer Cell, 2026."
+  },
+  {
     "objectID": "presentation/masterclass.html#learning-objectives",
     "href": "presentation/masterclass.html#learning-objectives",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
@@ -96,482 +243,6 @@
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
     "section": "References",
     "text": "References\nSimon E, Swanson K, Zou J. Nature Methods. 2024.\nJun H, Tanaka Y, Johri S, et al. Cancer Cell. 2026."
-  },
-  {
-    "objectID": "index.html#masterclass-map",
-    "href": "index.html#masterclass-map",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Masterclass map",
-    "text": "Masterclass map"
-  },
-  {
-    "objectID": "index.html#lesson-1-framework-di-decisione",
-    "href": "index.html#lesson-1-framework-di-decisione",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Lesson 1 — Framework di decisione",
-    "text": "Lesson 1 — Framework di decisione\nDal risultato NGS alla decisione:\n\nqualità e contesto del dato\ntiering AMP/ASCO/CAP\nactionability ESCAT\ntrade-off clinici\ndocumentazione finale"
-  },
-  {
-    "objectID": "index.html#qualità-e-contesto-del-dato",
-    "href": "index.html#qualità-e-contesto-del-dato",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Qualità e contesto del dato",
-    "text": "Qualità e contesto del dato\nPrima della classificazione:\n\ncopertura\npurezza\ncoerenza istologica\nmetodo\ntumor-only vs matched"
-  },
-  {
-    "objectID": "index.html#tiering-e-actionability",
-    "href": "index.html#tiering-e-actionability",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Tiering e actionability",
-    "text": "Tiering e actionability\nAMP/ASCO/CAP\nTier I–IV\nper:\n\nSNV / indel\namplificazioni\nfusioni\n\nESCAT\nLivelli di actionability clinica basati sulla forza dell’evidenza."
-  },
-  {
-    "objectID": "index.html#uncertainty-audit",
-    "href": "index.html#uncertainty-audit",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Uncertainty audit",
-    "text": "Uncertainty audit\nAleatoric uncertainty\nIncertezza intrinseca al dato.\nEpistemic uncertainty\nIncertezza dovuta a:\n\nlimiti del modello\nlimiti del dato\ntumor-only\nconoscenza incompleta\n\nMasterclass question\nL’AI distingue i due tipi di incertezza?"
-  },
-  {
-    "objectID": "index.html#workflow-analitico",
-    "href": "index.html#workflow-analitico",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Workflow analitico",
-    "text": "Workflow analitico\nFASTQ\n  ↓\nAlignment\n  ↓\nBAM / BAI\n  ↓\nIGV\n  ↓\nVariant evidence\n  ↓\nVAF + QC\n  ↓\nCN / LOH / HRD context\n  ↓\nClinical evidence framework\n  ↓\nAI-assisted interpretation\n  ↓\nHuman verification"
-  },
-  {
-    "objectID": "index.html#challenge-a-tp53",
-    "href": "index.html#challenge-a-tp53",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Challenge A — TP53",
-    "text": "Challenge A — TP53\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n100×\n\n\nREF\n58\n\n\nALT\n42\n\n\nVAF\n42%\n\n\nALT BQ\n40\n\n\nMAPQ\n60"
-  },
-  {
-    "objectID": "index.html#challenge-b-pik3ca-low-vaf",
-    "href": "index.html#challenge-b-pik3ca-low-vaf",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Challenge B — PIK3CA low-VAF",
-    "text": "Challenge B — PIK3CA low-VAF\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n200×\n\n\nREF\n190\n\n\nALT\n10\n\n\nVAF\n5%\n\n\nALT BQ\n16\n\n\nMAPQ\n60\n\n\n\nAudit:\n\nbase quality\nmapping quality\nstrand balance\nposition-in-read\nerror profile\nvalidated LOD"
-  },
-  {
-    "objectID": "index.html#challenge-c-brca1-loh-hrd",
-    "href": "index.html#challenge-c-brca1-loh-hrd",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Challenge C — BRCA1 / LOH / HRD",
-    "text": "Challenge C — BRCA1 / LOH / HRD\n\nREF 30\nALT 70\nVAF 70%\ntumor purity 65%\nlocal CN = 1\nLOH present\nHRD positive in the simulated assay"
-  },
-  {
-    "objectID": "index.html#lesson-2-rna-fusion-analysis",
-    "href": "index.html#lesson-2-rna-fusion-analysis",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Lesson 2 — RNA fusion analysis",
-    "text": "Lesson 2 — RNA fusion analysis\nGene fusions can be therapeutically relevant.\nExamples in the source lesson include:\n\nBCR-ABL\nEML4-ALK\n\nFusion calling remains technically challenging because of:\n\nunknown fusion partners\nlow gene expression\ncryptic splice sites\ndifficult breakpoint mapping\npoor-quality or low-cellularity specimens"
-  },
-  {
-    "objectID": "index.html#rnafusion",
-    "href": "index.html#rnafusion",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion",
-    "text": "RNAfusion\nRNAfusion is presented in the source lesson as an nf-core pipeline for RNA-seq fusion analysis.\nKey characteristics:\n\nstandardized workflow\nreproducible\nportable\nNextflow-based\nDocker / Singularity containerization\nHPC and cloud integration\nHTML reports\nnf-core validation / linting"
-  },
-  {
-    "objectID": "index.html#rnafusion-execution-concept",
-    "href": "index.html#rnafusion-execution-concept",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion — execution concept",
-    "text": "RNAfusion — execution concept\nExample from the source lesson:\nnextflow run nf-core/rnafusion -profile test,docker\nWhy this matters clinically\nReproducibility is not only convenience.\nIt supports:\n\ntraceable software environments\nconsistent workflow execution\neasier validation and re-analysis"
-  },
-  {
-    "objectID": "index.html#rnafusion-fusion-evidence",
-    "href": "index.html#rnafusion-fusion-evidence",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion — fusion evidence",
-    "text": "RNAfusion — fusion evidence\nThe source lesson also mentions kallisto fusion support:\n\nreads spanning potential fusion breakpoints\n--fusion mode\noutput to fusion.txt\ndownstream processing by pizzly\n\nMasterclass question\nWhat level of analytical evidence is required before a fusion enters clinical interpretation?"
-  },
-  {
-    "objectID": "index.html#lesson-3-splitfusion",
-    "href": "index.html#lesson-3-splitfusion",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Lesson 3 — SplitFusion",
-    "text": "Lesson 3 — SplitFusion\nSplitFusion is presented as a computational fusion-calling method that leverages:"
-  },
-  {
-    "objectID": "index.html#splitfusion-workflow",
-    "href": "index.html#splitfusion-workflow",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "SplitFusion workflow",
-    "text": "SplitFusion workflow\nThe source lesson describes these computational steps:\n\nreference alignment and deduplication\nCIGAR transformation\ncandidate breakpoint calling\ninitial breakpoint filtering\ngene annotation, frame-ness and exon-boundary analysis\nfurther filtering and target reporting\nresult reporting and visualization"
-  },
-  {
-    "objectID": "index.html#splitfusion-why-split-reads-matter",
-    "href": "index.html#splitfusion-why-split-reads-matter",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "SplitFusion — why split reads matter",
-    "text": "SplitFusion — why split reads matter\nFusion interpretation requires more than detecting two gene names.\nAudit:\n\nbreakpoint support\nsplit-read evidence\nunique fragment support\nexon-boundary alignment\nframe-ness\nmapping ambiguity\nrecurrent technical artifacts\n\nQuestion\nWould you report a fusion supported by a single split read?"
-  },
-  {
-    "objectID": "index.html#fusion-audit-in-igv",
-    "href": "index.html#fusion-audit-in-igv",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion audit in IGV",
-    "text": "Fusion audit in IGV\nFor a candidate fusion, inspect:\n\nsoft-clipped / split reads\nsupplementary alignments\nbreakpoint consistency\nread-pair support\nlocal mappability\nstrand orientation\nduplicate evidence\ntranscript/exon context"
-  },
-  {
-    "objectID": "index.html#fusion-result-clinical-framework",
-    "href": "index.html#fusion-result-clinical-framework",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion result → clinical framework",
-    "text": "Fusion result → clinical framework"
-  },
-  {
-    "objectID": "index.html#fusion-ai-prompt-unsafe",
-    "href": "index.html#fusion-ai-prompt-unsafe",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion AI prompt — unsafe",
-    "text": "Fusion AI prompt — unsafe\n\nAn RNA fusion was detected between gene A and gene B.\nIs it actionable and what therapy should be given?\n\nWhy unsafe?\nMissing:\n\nbreakpoint evidence\nreading frame\ntranscript context\nquality metrics\ntumor type\nevidence tier\nregulatory context"
-  },
-  {
-    "objectID": "index.html#fusion-ai-prompt-constrained",
-    "href": "index.html#fusion-ai-prompt-constrained",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion AI prompt — constrained",
-    "text": "Fusion AI prompt — constrained\nUse only the following evidence:\n\nANALYTICAL\n- split-read count\n- spanning-pair count\n- breakpoint coordinates\n- mapping quality\n- strand orientation\n- in-frame / out-of-frame status\n\nCLINICAL\n- tumor type\n- AMP/ASCO/CAP tier\n- ESCAT level if available\n\nReturn:\n1. analytical evidence\n2. biological interpretation\n3. actionability requiring external verification\n4. unsupported conclusions"
-  },
-  {
-    "objectID": "index.html#ai-rag-audit",
-    "href": "index.html#ai-rag-audit",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "AI / RAG audit",
-    "text": "AI / RAG audit\nClassify each AI sentence:\nA — analytical fact\nB — supported biological inference\nC — requires external evidence\nD — unsupported / hallucinated"
-  },
-  {
-    "objectID": "index.html#key-lesson",
-    "href": "index.html#key-lesson",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Key lesson",
-    "text": "Key lesson"
-  },
-  {
-    "objectID": "index.html#reporting-architecture",
-    "href": "index.html#reporting-architecture",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Reporting architecture",
-    "text": "Reporting architecture\nA robust molecular report should separate:\n1. Analytical observation\n2. Biological interpretation\n3. Evidence tier\n4. Clinical relevance\n5. Limitations\n6. Recommended verification / follow-up"
-  },
-  {
-    "objectID": "index.html#integrated-masterclass-workflow",
-    "href": "index.html#integrated-masterclass-workflow",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Integrated masterclass workflow",
-    "text": "Integrated masterclass workflow\nFASTQ\n ↓\nSNV / indel / CNV / fusion detection\n ↓\nBAM / IGV audit\n ↓\nQC and analytical acceptance\n ↓\nAMP/ASCO/CAP tier\n ↓\nESCAT / clinical evidence\n ↓\nAI-assisted synthesis\n ↓\nhuman audit\n ↓\nreport"
-  },
-  {
-    "objectID": "index.html#lesson-resources",
-    "href": "index.html#lesson-resources",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Lesson resources",
-    "text": "Lesson resources\nOriginal lesson files:\n\nFramework AMP/ASCO/CAP + ESCAT\nRNAfusion\nSplitFusion"
-  },
-  {
-    "objectID": "index.html#take-home",
-    "href": "index.html#take-home",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Take-home",
-    "text": "Take-home"
-  },
-  {
-    "objectID": "index.html#end",
-    "href": "index.html#end",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "End",
-    "text": "End\nAI-Augmented Molecular Genomics Masterclass\nVariant interpretation · fusion analysis · clinical evidence · AI audit"
-  },
-  {
-    "objectID": "index.html#modulo-finale-1-framework-di-decisione",
-    "href": "index.html#modulo-finale-1-framework-di-decisione",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Modulo finale 1 — Framework di decisione",
-    "text": "Modulo finale 1 — Framework di decisione\nDal risultato NGS alla decisione clinica\nIl framework proposto nelle lezioni originali separa cinque passaggi:\n\nQualità e contesto del dato\nTiering AMP/ASCO/CAP\nActionability ESCAT\nTrade-off clinici\nDocumentazione"
-  },
-  {
-    "objectID": "index.html#qualità-e-contesto-del-dato-1",
-    "href": "index.html#qualità-e-contesto-del-dato-1",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "1. Qualità e contesto del dato",
-    "text": "1. Qualità e contesto del dato\nPrima di classificare una variante chiediti:\n\nla copertura è adeguata?\nla purezza tumorale è sufficiente?\nil dato è coerente con l’istologia?\nil test è tumor-only o matched?\nil risultato è tecnicamente interpretabile?\n\nRegola"
-  },
-  {
-    "objectID": "index.html#tiering-ampascocap",
-    "href": "index.html#tiering-ampascocap",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "2. Tiering AMP/ASCO/CAP",
-    "text": "2. Tiering AMP/ASCO/CAP\nTier I–IV\nIl framework della lezione applica il tiering a:\n\nSNV / indel\namplificazioni\nfusioni\n\nL’obiettivo è separare:\nsignificato clinico\nda\nsemplice presenza dell’alterazione"
-  },
-  {
-    "objectID": "index.html#actionability-escat",
-    "href": "index.html#actionability-escat",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "3. Actionability — ESCAT",
-    "text": "3. Actionability — ESCAT\nDomanda\nQuanto è forte l’evidenza che collega:"
-  },
-  {
-    "objectID": "index.html#trade-off-e-documentazione",
-    "href": "index.html#trade-off-e-documentazione",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "4. Trade-off e documentazione",
-    "text": "4. Trade-off e documentazione\nLa decisione finale non è solo genomica.\nIntegra:\n\nbeneficio atteso\ntossicità\nlogistica\npreferenze del paziente\nalternative\ntrial clinici\nfollow-up"
-  },
-  {
-    "objectID": "index.html#aleatoric-vs-epistemic-uncertainty",
-    "href": "index.html#aleatoric-vs-epistemic-uncertainty",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Aleatoric vs epistemic uncertainty",
-    "text": "Aleatoric vs epistemic uncertainty\nAleatoric\nIncertezza intrinseca al dato.\nEpistemic\nIncertezza dovuta a:\n\nlimiti del modello\nlimiti del dato\ntumor-only\nconoscenza incompleta\n\nAI audit\nIl modello dichiara quale tipo di incertezza sta gestendo?"
-  },
-  {
-    "objectID": "index.html#modulo-finale-2-rnafusion",
-    "href": "index.html#modulo-finale-2-rnafusion",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Modulo finale 2 — RNAfusion",
-    "text": "Modulo finale 2 — RNAfusion\nUna pipeline riproducibile per fusioni RNA-seq\nLa lezione descrive RNAfusion come pipeline nf-core costruita con:\n\nNextflow\nDocker / Singularity\nworkflow standardizzato\nsupporto HPC / cloud\nreport HTML\ncontrolli nf-core"
-  },
-  {
-    "objectID": "index.html#rnafusion-perché-interessa-il-laboratorio-clinico",
-    "href": "index.html#rnafusion-perché-interessa-il-laboratorio-clinico",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion — perché interessa il laboratorio clinico?",
-    "text": "RNAfusion — perché interessa il laboratorio clinico?\nRiproducibilità\nStesso workflow\n→ stesso ambiente software\n→ maggiore tracciabilità\nPortabilità\nLaptop / server / HPC / cloud\nStandardizzazione\nRiduce la variabilità operativa tra analisi."
-  },
-  {
-    "objectID": "index.html#rnafusion-esempio-di-esecuzione",
-    "href": "index.html#rnafusion-esempio-di-esecuzione",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion — esempio di esecuzione",
-    "text": "RNAfusion — esempio di esecuzione\nnextflow run nf-core/rnafusion -profile test,docker\nDomanda per la masterclass"
-  },
-  {
-    "objectID": "index.html#rnafusion-evidenza-di-fusione",
-    "href": "index.html#rnafusion-evidenza-di-fusione",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "RNAfusion — evidenza di fusione",
-    "text": "RNAfusion — evidenza di fusione\nLa lezione richiama anche il supporto fusion di kallisto:\n\nidentificazione di read pair coinvolti in potenziali breakpoint\nmodalità --fusion\noutput fusion.txt\nprocessamento downstream con pizzly\n\nAudit\nIl nome di una fusione non basta.\nServe valutare come è stata chiamata."
-  },
-  {
-    "objectID": "index.html#modulo-finale-3-splitfusion",
-    "href": "index.html#modulo-finale-3-splitfusion",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Modulo finale 3 — SplitFusion",
-    "text": "Modulo finale 3 — SplitFusion\nDallo split-read al breakpoint\nLa lezione descrive SplitFusion come metodo che sfrutta:"
-  },
-  {
-    "objectID": "index.html#splitfusion-pipeline-analitica",
-    "href": "index.html#splitfusion-pipeline-analitica",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "SplitFusion — pipeline analitica",
-    "text": "SplitFusion — pipeline analitica\n\nreference alignment e deduplication\nCIGAR transformation\ncandidate breakpoint calling\ninitial breakpoint filtering\ngene annotation\nframe-ness\nexon-boundary analysis\nfurther filtering\nreporting e visualization"
-  },
-  {
-    "objectID": "index.html#splitfusion-evidenza-da-auditare",
-    "href": "index.html#splitfusion-evidenza-da-auditare",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "SplitFusion — evidenza da auditare",
-    "text": "SplitFusion — evidenza da auditare\nPer una fusione clinicamente interpretabile valuta:\n\nsplit reads\nbreakpoint consistency\nunique fragment support\nexon boundaries\nframe-ness\nmapping ambiguity\neventuali artefatti ricorrenti\n\nDomanda"
-  },
-  {
-    "objectID": "index.html#fusioni-vista-integrata",
-    "href": "index.html#fusioni-vista-integrata",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusioni — vista integrata",
-    "text": "Fusioni — vista integrata\nRNA FASTQ\n   ↓\nalignment / fusion caller\n   ↓\ncandidate fusion\n   ↓\nsplit-read / spanning-read evidence\n   ↓\nbreakpoint + transcript context\n   ↓\nQC\n   ↓\nAMP/ASCO/CAP\n   ↓\nESCAT / actionability\n   ↓\nAI-assisted synthesis\n   ↓\nhuman verification"
-  },
-  {
-    "objectID": "index.html#fusion-ai-prompt-troppo-generico",
-    "href": "index.html#fusion-ai-prompt-troppo-generico",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion AI prompt — troppo generico",
-    "text": "Fusion AI prompt — troppo generico\n\nÈ stata identificata una fusione GeneA–GeneB.\nÈ clinicamente rilevante e quale terapia devo usare?\n\nProblema\nMancano:\n\nsupporto analitico\nbreakpoint\nframe\ntranscript\ntumor type\ntier\nsetting clinico\nevidenza regolatoria"
-  },
-  {
-    "objectID": "index.html#fusion-ai-prompt-strutturato",
-    "href": "index.html#fusion-ai-prompt-strutturato",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Fusion AI prompt — strutturato",
-    "text": "Fusion AI prompt — strutturato\nANALYTICAL EVIDENCE\n- split-read count\n- spanning-read count\n- breakpoint\n- MAPQ\n- strand orientation\n- in-frame / out-of-frame\n- transcript / exon context\n\nCLINICAL CONTEXT\n- tumor type\n- AMP/ASCO/CAP tier\n- ESCAT level, if established\n\nReturn:\n1. observed evidence\n2. biological interpretation\n3. evidence requiring external verification\n4. unsupported conclusions"
-  },
-  {
-    "objectID": "index.html#le-tre-indicazioni-finali",
-    "href": "index.html#le-tre-indicazioni-finali",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n1 — Non saltare il livello analitico"
-  },
-  {
-    "objectID": "index.html#le-tre-indicazioni-finali-1",
-    "href": "index.html#le-tre-indicazioni-finali-1",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n2 — Non confondere standardizzazione e validità clinica"
-  },
-  {
-    "objectID": "index.html#le-tre-indicazioni-finali-2",
-    "href": "index.html#le-tre-indicazioni-finali-2",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n3 — Non lasciare che l’AI fonda livelli diversi"
-  },
-  {
-    "objectID": "index.html#chiusura-della-masterclass",
-    "href": "index.html#chiusura-della-masterclass",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Chiusura della masterclass",
-    "text": "Chiusura della masterclass"
-  },
-  {
-    "objectID": "ISTRUZIONI.html",
-    "href": "ISTRUZIONI.html",
-    "title": "Come aggiungere le 3 lezioni alla presentazione esistente",
-    "section": "",
-    "text": "Come aggiungere le 3 lezioni alla presentazione esistente\nNon sostituire il tuo index.qmd.\nApri index.qmd e aggiungi in fondo il contenuto di:\nappend_lezioni.qmd\nOppure da terminale:\ncat append_lezioni.qmd &gt;&gt; index.qmd\nrm -rf docs\nquarto render\nxdg-open docs/index.html\nSe il risultato è corretto:\ngit add .\ngit commit -m \"Add decision framework RNAfusion and SplitFusion modules\"\ngit push origin main\nI tre moduli sono adattati allo stesso stile didattico della masterclass: - domanda/decisione - evidenza analitica - audit - errore da evitare - take-home"
-  },
-  {
-    "objectID": "append_lezioni.html#modulo-finale-1-framework-di-decisione",
-    "href": "append_lezioni.html#modulo-finale-1-framework-di-decisione",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Modulo finale 1 — Framework di decisione",
-    "text": "Modulo finale 1 — Framework di decisione\n\nDal risultato NGS alla decisione clinica\nIl framework proposto nelle lezioni originali separa cinque passaggi:\n\nQualità e contesto del dato\nTiering AMP/ASCO/CAP\nActionability ESCAT\nTrade-off clinici\nDocumentazione"
-  },
-  {
-    "objectID": "append_lezioni.html#qualità-e-contesto-del-dato",
-    "href": "append_lezioni.html#qualità-e-contesto-del-dato",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "1. Qualità e contesto del dato",
-    "text": "1. Qualità e contesto del dato\nPrima di classificare una variante chiediti:\n\nla copertura è adeguata?\nla purezza tumorale è sufficiente?\nil dato è coerente con l’istologia?\nil test è tumor-only o matched?\nil risultato è tecnicamente interpretabile?\n\n\nRegola"
-  },
-  {
-    "objectID": "append_lezioni.html#tiering-ampascocap",
-    "href": "append_lezioni.html#tiering-ampascocap",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "2. Tiering AMP/ASCO/CAP",
-    "text": "2. Tiering AMP/ASCO/CAP\n\nTier I–IV\nIl framework della lezione applica il tiering a:\n\nSNV / indel\namplificazioni\nfusioni\n\nL’obiettivo è separare:\nsignificato clinico\nda\nsemplice presenza dell’alterazione"
-  },
-  {
-    "objectID": "append_lezioni.html#actionability-escat",
-    "href": "append_lezioni.html#actionability-escat",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "3. Actionability — ESCAT",
-    "text": "3. Actionability — ESCAT\n\nDomanda\nQuanto è forte l’evidenza che collega:"
-  },
-  {
-    "objectID": "append_lezioni.html#trade-off-e-documentazione",
-    "href": "append_lezioni.html#trade-off-e-documentazione",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "4. Trade-off e documentazione",
-    "text": "4. Trade-off e documentazione\nLa decisione finale non è solo genomica.\nIntegra:\n\nbeneficio atteso\ntossicità\nlogistica\npreferenze del paziente\nalternative\ntrial clinici\nfollow-up"
-  },
-  {
-    "objectID": "append_lezioni.html#aleatoric-vs-epistemic-uncertainty",
-    "href": "append_lezioni.html#aleatoric-vs-epistemic-uncertainty",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Aleatoric vs epistemic uncertainty",
-    "text": "Aleatoric vs epistemic uncertainty\n\nAleatoric\nIncertezza intrinseca al dato.\n\n\nEpistemic\nIncertezza dovuta a:\n\nlimiti del modello\nlimiti del dato\ntumor-only\nconoscenza incompleta\n\n\n\nAI audit\nIl modello dichiara quale tipo di incertezza sta gestendo?"
-  },
-  {
-    "objectID": "append_lezioni.html#modulo-finale-2-rnafusion",
-    "href": "append_lezioni.html#modulo-finale-2-rnafusion",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Modulo finale 2 — RNAfusion",
-    "text": "Modulo finale 2 — RNAfusion\n\nUna pipeline riproducibile per fusioni RNA-seq\nLa lezione descrive RNAfusion come pipeline nf-core costruita con:\n\nNextflow\nDocker / Singularity\nworkflow standardizzato\nsupporto HPC / cloud\nreport HTML\ncontrolli nf-core"
-  },
-  {
-    "objectID": "append_lezioni.html#rnafusion-perché-interessa-il-laboratorio-clinico",
-    "href": "append_lezioni.html#rnafusion-perché-interessa-il-laboratorio-clinico",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "RNAfusion — perché interessa il laboratorio clinico?",
-    "text": "RNAfusion — perché interessa il laboratorio clinico?\n\nRiproducibilità\nStesso workflow\n→ stesso ambiente software\n→ maggiore tracciabilità\n\n\nPortabilità\nLaptop / server / HPC / cloud\n\n\nStandardizzazione\nRiduce la variabilità operativa tra analisi."
-  },
-  {
-    "objectID": "append_lezioni.html#rnafusion-esempio-di-esecuzione",
-    "href": "append_lezioni.html#rnafusion-esempio-di-esecuzione",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "RNAfusion — esempio di esecuzione",
-    "text": "RNAfusion — esempio di esecuzione\nnextflow run nf-core/rnafusion -profile test,docker\n\nDomanda per la masterclass"
-  },
-  {
-    "objectID": "append_lezioni.html#rnafusion-evidenza-di-fusione",
-    "href": "append_lezioni.html#rnafusion-evidenza-di-fusione",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "RNAfusion — evidenza di fusione",
-    "text": "RNAfusion — evidenza di fusione\nLa lezione richiama anche il supporto fusion di kallisto:\n\nidentificazione di read pair coinvolti in potenziali breakpoint\nmodalità --fusion\noutput fusion.txt\nprocessamento downstream con pizzly\n\n\nAudit\nIl nome di una fusione non basta.\nServe valutare come è stata chiamata."
-  },
-  {
-    "objectID": "append_lezioni.html#modulo-finale-3-splitfusion",
-    "href": "append_lezioni.html#modulo-finale-3-splitfusion",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Modulo finale 3 — SplitFusion",
-    "text": "Modulo finale 3 — SplitFusion\n\nDallo split-read al breakpoint\nLa lezione descrive SplitFusion come metodo che sfrutta:"
-  },
-  {
-    "objectID": "append_lezioni.html#splitfusion-pipeline-analitica",
-    "href": "append_lezioni.html#splitfusion-pipeline-analitica",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "SplitFusion — pipeline analitica",
-    "text": "SplitFusion — pipeline analitica\n\nreference alignment e deduplication\nCIGAR transformation\ncandidate breakpoint calling\ninitial breakpoint filtering\ngene annotation\nframe-ness\nexon-boundary analysis\nfurther filtering\nreporting e visualization"
-  },
-  {
-    "objectID": "append_lezioni.html#splitfusion-evidenza-da-auditare",
-    "href": "append_lezioni.html#splitfusion-evidenza-da-auditare",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "SplitFusion — evidenza da auditare",
-    "text": "SplitFusion — evidenza da auditare\nPer una fusione clinicamente interpretabile valuta:\n\nsplit reads\nbreakpoint consistency\nunique fragment support\nexon boundaries\nframe-ness\nmapping ambiguity\neventuali artefatti ricorrenti\n\n\nDomanda"
-  },
-  {
-    "objectID": "append_lezioni.html#fusioni-vista-integrata",
-    "href": "append_lezioni.html#fusioni-vista-integrata",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Fusioni — vista integrata",
-    "text": "Fusioni — vista integrata\nRNA FASTQ\n   ↓\nalignment / fusion caller\n   ↓\ncandidate fusion\n   ↓\nsplit-read / spanning-read evidence\n   ↓\nbreakpoint + transcript context\n   ↓\nQC\n   ↓\nAMP/ASCO/CAP\n   ↓\nESCAT / actionability\n   ↓\nAI-assisted synthesis\n   ↓\nhuman verification"
-  },
-  {
-    "objectID": "append_lezioni.html#fusion-ai-prompt-troppo-generico",
-    "href": "append_lezioni.html#fusion-ai-prompt-troppo-generico",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Fusion AI prompt — troppo generico",
-    "text": "Fusion AI prompt — troppo generico\n\nÈ stata identificata una fusione GeneA–GeneB.\nÈ clinicamente rilevante e quale terapia devo usare?\n\n\nProblema\nMancano:\n\nsupporto analitico\nbreakpoint\nframe\ntranscript\ntumor type\ntier\nsetting clinico\nevidenza regolatoria"
-  },
-  {
-    "objectID": "append_lezioni.html#fusion-ai-prompt-strutturato",
-    "href": "append_lezioni.html#fusion-ai-prompt-strutturato",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Fusion AI prompt — strutturato",
-    "text": "Fusion AI prompt — strutturato\nANALYTICAL EVIDENCE\n- split-read count\n- spanning-read count\n- breakpoint\n- MAPQ\n- strand orientation\n- in-frame / out-of-frame\n- transcript / exon context\n\nCLINICAL CONTEXT\n- tumor type\n- AMP/ASCO/CAP tier\n- ESCAT level, if established\n\nReturn:\n1. observed evidence\n2. biological interpretation\n3. evidence requiring external verification\n4. unsupported conclusions"
-  },
-  {
-    "objectID": "append_lezioni.html#le-tre-indicazioni-finali",
-    "href": "append_lezioni.html#le-tre-indicazioni-finali",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n\n1 — Non saltare il livello analitico"
-  },
-  {
-    "objectID": "append_lezioni.html#le-tre-indicazioni-finali-1",
-    "href": "append_lezioni.html#le-tre-indicazioni-finali-1",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n\n2 — Non confondere standardizzazione e validità clinica"
-  },
-  {
-    "objectID": "append_lezioni.html#le-tre-indicazioni-finali-2",
-    "href": "append_lezioni.html#le-tre-indicazioni-finali-2",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Le tre indicazioni finali",
-    "text": "Le tre indicazioni finali\n\n3 — Non lasciare che l’AI fonda livelli diversi"
-  },
-  {
-    "objectID": "append_lezioni.html#chiusura-della-masterclass",
-    "href": "append_lezioni.html#chiusura-della-masterclass",
-    "title": "Prima validità analitica, poi interpretazione",
-    "section": "Chiusura della masterclass",
-    "text": "Chiusura della masterclass"
   },
   {
     "objectID": "ISTRUZIONI_UPDATE.html",
