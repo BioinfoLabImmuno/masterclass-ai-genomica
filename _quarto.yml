@@ -1,13 +1,12 @@
 project:
   type: website
   output-dir: docs
-
-resources:
-  - data/**
-  - alignments/**
-  - scripts/**
-  - presentation/**
-  - downloads/**
+  resources:
+    - data/**
+    - alignments/**
+    - scripts/**
+    - downloads/**
+    - presentation/**
 
 website:
   title: "Masterclass AI Genomica Ovarica"
