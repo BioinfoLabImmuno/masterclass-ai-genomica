@@ -1,0 +1,4 @@
+case	locus	tumor_purity	local_copy_number	LOH	HRD_result	comment
+A	TP53_SYNTHETIC	0.65	2.0	no	not_assessed	High-confidence analytical call
+B	PIK3CA_SYNTHETIC	0.65	2.0	no	not_assessed	Low-VAF call: review quality and strand/read-position evidence before acceptance
+C	BRCA1_SYNTHETIC	0.65	1.0	yes	positive_per_assay_specific_validated_cutoff	HRD result is simulated; does not determine germline vs somatic origin
