@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AI-Augmented Variant Interpretation in Ovarian Cancer – Masterclass AI-Augmented Variant Interpretation</title>
+<title>Masterclass AI-Augmented Variant Interpretation – Masterclass AI Genomica Ovarica</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Masterclass AI-Augmented Variant Interpretation</span>
+    <span class="navbar-title">Masterclass AI Genomica Ovarica</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -98,23 +98,19 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Masterclass</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./exercise.html"> 
-<span class="menu-text">Challenge</span></a>
+    <a class="nav-link" href="./presentation/masterclass.html"> 
+<span class="menu-text">Presentazione</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ai-audit.html"> 
-<span class="menu-text">AI Audit</span></a>
+    <a class="nav-link" href="./materiali.html"> 
+<span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./validation.html"> 
-<span class="menu-text">Validation</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
-<span class="menu-text">Sources</span></a>
+    <a class="nav-link" href="./validazione.html"> 
+<span class="menu-text">Validazione</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -131,11 +127,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#case-framework" id="toc-case-framework" class="nav-link" data-scroll-target="#case-framework">Case framework</a></li>
-  <li><a href="#masterclass-workflow" id="toc-masterclass-workflow" class="nav-link" data-scroll-target="#masterclass-workflow">Masterclass workflow</a></li>
-  <li><a href="#ovarian-cancer-context" id="toc-ovarian-cancer-context" class="nav-link" data-scroll-target="#ovarian-cancer-context">Ovarian cancer context</a></li>
-  <li><a href="#key-principle" id="toc-key-principle" class="nav-link" data-scroll-target="#key-principle">Key principle</a></li>
+  <li><a href="#benvenuti" id="toc-benvenuti" class="nav-link active" data-scroll-target="#benvenuti">Benvenuti</a>
+  <ul class="collapse">
+  <li><a href="#percorso" id="toc-percorso" class="nav-link" data-scroll-target="#percorso">Percorso</a></li>
+  <li><a href="#accesso-rapido" id="toc-accesso-rapido" class="nav-link" data-scroll-target="#accesso-rapido">Accesso rapido</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -148,8 +144,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AI-Augmented Variant Interpretation in Ovarian Cancer</h1>
-<p class="subtitle lead">Advanced masterclass for clinical biologists</p>
+<h1 class="title">Masterclass AI-Augmented Variant Interpretation</h1>
+<p class="subtitle lead">Ovarian Cancer · BAM/IGV · AI audit</p>
 </div>
 
 
@@ -166,90 +162,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-objectives" class="level1">
-<h1>Learning objectives</h1>
-<p>At the end of the masterclass you should be able to:</p>
-<ol type="1">
-<li>audit an NGS call beyond raw VAF;</li>
-<li>use IGV to interrogate depth, base quality and mapping evidence;</li>
-<li>distinguish an analytically strong call from a low-VAF borderline call;</li>
-<li>reason about VAF in the presence of purity, copy number and LOH;</li>
-<li>keep BRCA/HRD interpretation separate from germline/somatic origin;</li>
-<li>audit an LLM answer using source-grounded constraints.</li>
-</ol>
+<section id="benvenuti" class="level1">
+<h1>Benvenuti</h1>
+<p>Questa è la pagina principale della masterclass.</p>
+<section id="percorso" class="level2">
+<h2 class="anchored" data-anchor-id="percorso">Percorso</h2>
+<p><strong>FASTQ → BAM/BAI → IGV audit → VAF/QC → CN/LOH → BRCA/HRD → AI/RAG audit → refertazione</strong></p>
 </section>
-<section id="case-framework" class="level1">
-<h1>Case framework</h1>
-<p>Three synthetic challenges are provided.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Challenge</th>
-<th>Locus</th>
-<th>Analytical feature</th>
-<th>Teaching point</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>TP53</td>
-<td>42% VAF, high quality</td>
-<td>strong call, but VAF does not define origin</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>PIK3CA</td>
-<td>5% VAF, lower ALT base quality</td>
-<td>low-VAF evidence requires QC review</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>BRCA1</td>
-<td>70% VAF + CN=1 + LOH</td>
-<td>high VAF has multiple biological explanations</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="accesso-rapido" class="level2">
+<h2 class="anchored" data-anchor-id="accesso-rapido">Accesso rapido</h2>
+<ul>
+<li><a href="presentation/masterclass.html">Apri la presentazione Quarto</a></li>
+<li><a href="materiali.html">Scarica i materiali</a></li>
+<li><a href="validazione.html">Controlla la validazione</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All sequences, loci and results are synthetic. No clinical treatment decision should be derived from this repository.</p>
+<p>Tutti i dati sono sintetici e destinati esclusivamente alla didattica.</p>
 </div>
 </div>
-</section>
-<section id="masterclass-workflow" class="level1">
-<h1>Masterclass workflow</h1>
-<p><code>FASTQ → alignment → BAM/BAI → IGV audit → VAF/QC → CN/LOH context → BRCA/HRD interpretation → AI audit → report wording</code></p>
-</section>
-<section id="ovarian-cancer-context" class="level1">
-<h1>Ovarian cancer context</h1>
-<p>For high-grade ovarian cancer, current ESMO guidance recommends BRCA1/2 testing at diagnosis, and HRD testing in advanced high-grade cancers. In this masterclass the HRD result is intentionally <strong>simulated and assay-specific</strong>; no universal numeric cutoff is taught.</p>
-</section>
-<section id="key-principle" class="level1">
-<h1>Key principle</h1>
-<p>A variant call has at least three separate layers:</p>
-<ul>
-<li><strong>analytical evidence</strong>: do the reads support the call?</li>
-<li><strong>biological interpretation</strong>: what does the alteration mean?</li>
-<li><strong>clinical actionability</strong>: what can be acted on in the relevant disease/setting?</li>
-</ul>
-<p>The AI is audited separately at each layer.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

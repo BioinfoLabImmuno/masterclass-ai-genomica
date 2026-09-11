@@ -1,58 +1,121 @@
 [
   {
-    "objectID": "exercise.html",
-    "href": "exercise.html",
-    "title": "IGV Challenge",
+    "objectID": "validazione.html",
+    "href": "validazione.html",
+    "title": "Validazione",
     "section": "",
-    "text": "In IGV:\n\nGenomes → Load Genome from File\nload data/reference.fasta\nFile → Load from File\nload alignments/masterclass.sorted.bam\noptionally load alignments/masterclass.vcf"
+    "text": "Locus\nREF\nALT\nVAF\nALT BQ\nMAPQ\nStato\n\n\n\n\nTP53_SYNTHETIC\n58\n42\n42%\n40\n60\nPASS\n\n\nPIK3CA_SYNTHETIC\n190\n10\n5%\n16\n60\nPASS\n\n\nBRCA1_SYNTHETIC\n30\n70\n70%\n40\n60\nPASS\n\n\n\nLa validazione controlla la coerenza del dataset sintetico, non una pipeline clinica."
   },
   {
-    "objectID": "exercise.html#question",
-    "href": "exercise.html#question",
-    "title": "IGV Challenge",
-    "section": "Question",
-    "text": "Question\nWould you accept the analytical call?\nThen ask a different question:\nDoes 42% establish germline origin?\n\n\n\n\n\n\nWarning\n\n\n\nNo. ASCO guidance explicitly states that VAF alone is insufficient to confirm or exclude germline origin."
+    "objectID": "presentation/masterclass.html#learning-objectives",
+    "href": "presentation/masterclass.html#learning-objectives",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nAudit an NGS call beyond raw VAF\nUse IGV to inspect depth, base quality and mapping evidence\nInterpret low-VAF calls critically\nIntegrate purity, copy number and LOH\nSeparate BRCA/HRD biology from germline/somatic origin\nAudit LLM output with source-grounded constraints"
   },
   {
-    "objectID": "exercise.html#audit-checklist",
-    "href": "exercise.html#audit-checklist",
-    "title": "IGV Challenge",
-    "section": "Audit checklist",
-    "text": "Audit checklist\nBefore accepting a 5% variant, inspect:\n\nbase quality;\nmapping quality;\nstrand representation;\nposition in read;\nlocal sequence context;\nerror profile of the assay;\nvalidated LOD;\nduplicate/UMI handling where applicable.\n\nThe purpose is not to declare 5% false. It is to demonstrate that VAF alone is insufficient for analytical acceptance."
+    "objectID": "presentation/masterclass.html#workflow",
+    "href": "presentation/masterclass.html#workflow",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Workflow",
+    "text": "Workflow"
   },
   {
-    "objectID": "exercise.html#questions",
-    "href": "exercise.html#questions",
-    "title": "IGV Challenge",
-    "section": "Questions",
-    "text": "Questions\n\nIs the elevated VAF compatible with loss of the wild-type allele?\nDoes it prove germline origin?\nDoes an HRD-positive result prove that this specific BRCA1 variant caused HRD?\nCan a VUS in an HRR gene be promoted to pathogenic because HRD is positive?\n\nExpected reasoning:\n\nCN/LOH can materially alter VAF.\ngermline vs somatic origin cannot be inferred from VAF alone.\nHRD is a genomic phenotype/test result, not analytical confirmation of a specific sequence variant.\na VUS remains a VUS unless variant-level evidence changes its classification."
+    "objectID": "presentation/masterclass.html#challenge-a-tp53",
+    "href": "presentation/masterclass.html#challenge-a-tp53",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge A — TP53",
+    "text": "Challenge A — TP53\n\n58 REF\n42 ALT\nVAF 42%\nALT base quality high\nMAPQ 60\n\nQuestion: analytically solid call?\nSecond question: does 42% prove germline origin?"
   },
   {
-    "objectID": "sources.html",
-    "href": "sources.html",
-    "title": "Verified Sources",
-    "section": "",
-    "text": "AI / biological language models\nSimon E, Swanson K, Zou J. Nature Methods 2024.\nSource claims used:\n\nnatural-language and biological-language models are distinct applications of sequence modelling;\nLLMs can support literature understanding and bioinformatics coding;\nhallucinations occur and outputs should be fact-checked;\nlanguage models do not replace experimental validation.\n\n\n\nContext-augmented precision oncology\nJun H et al. Cancer Cell 2026.\nVerified source claims used:\n\nRAG-LLM built with MOAlmanac;\nup to 95% accuracy on synthetic queries;\n93% accuracy on the held-out real-world test setting with hybrid retrieval;\nreal-world failure cases included LLM misinterpretation of retrieved context.\n\n\n\nIGV\nOfficial IGV documentation confirms:\n\nBAM/CRAM alignment files require an associated index;\nIGV can display coverage and reference mismatches;\ncoverage details can show nucleotide counts and strand split.\n\n\n\nGermline inference from tumor VAF\nASCO guideline on germline testing panels in patients with cancer:\n\nVAF from tumor profiling is not sufficient by itself to confirm or exclude germline origin;\ntumor purity and other factors must be considered.\n\n\n\nOvarian molecular testing\nESMO epithelial ovarian cancer guidance:\n\nhigh-grade ovarian cancer should undergo germline and/or somatic BRCA1/2 testing at diagnosis;\nHRD testing is recommended in advanced high-grade cancers.\n\n\n\nScope\nThese sources support the teaching principles. They do not validate the synthetic variants as clinically meaningful variants."
+    "objectID": "presentation/masterclass.html#challenge-b-pik3ca-low-vaf",
+    "href": "presentation/masterclass.html#challenge-b-pik3ca-low-vaf",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge B — PIK3CA low-VAF",
+    "text": "Challenge B — PIK3CA low-VAF\n\n190 REF\n10 ALT\nVAF 5%\nALT base quality intentionally reduced\n\nAudit:\n\nbase quality\nmapping quality\nstrand representation\nposition-in-read\nassay error profile\nvalidated LOD"
+  },
+  {
+    "objectID": "presentation/masterclass.html#challenge-c-brca1-loh-hrd",
+    "href": "presentation/masterclass.html#challenge-c-brca1-loh-hrd",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Challenge C — BRCA1 / LOH / HRD",
+    "text": "Challenge C — BRCA1 / LOH / HRD\n\n30 REF\n70 ALT\nVAF 70%\nsimulated purity 65%\nlocal CN = 1\nLOH present\nHRD positive by simulated assay-specific cutoff\n\nQuestion: does high VAF prove germline origin?\nQuestion: does HRD positivity prove causality of this specific BRCA1 variant?"
+  },
+  {
+    "objectID": "presentation/masterclass.html#igv-audit",
+    "href": "presentation/masterclass.html#igv-audit",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "IGV audit",
+    "text": "IGV audit\nLoad:\n\ndata/reference.fasta\nalignments/masterclass.sorted.bam\noptional alignments/masterclass.vcf\n\nInspect:\n\ncoverage\nmismatches\nquality\nstrand balance\nlocal context"
+  },
+  {
+    "objectID": "presentation/masterclass.html#prompt-a-unconstrained",
+    "href": "presentation/masterclass.html#prompt-a-unconstrained",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Prompt A — unconstrained",
+    "text": "Prompt A — unconstrained\n\nThis ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.\nIs it germline and which PARP inhibitor should the patient receive?\n\nLook for unsupported inference."
+  },
+  {
+    "objectID": "presentation/masterclass.html#prompt-b-constrained-context",
+    "href": "presentation/masterclass.html#prompt-b-constrained-context",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Prompt B — constrained context",
+    "text": "Prompt B — constrained context\nUse only:\n\nBAM/IGV evidence\nVAF\nCN\nLOH\nHRD result\n\nReturn:\n\nobserved analytical evidence\ncompatible biological interpretations\nunsupported conclusions\nsources that must be checked"
+  },
+  {
+    "objectID": "presentation/masterclass.html#ai-audit-rubric",
+    "href": "presentation/masterclass.html#ai-audit-rubric",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "AI audit rubric",
+    "text": "AI audit rubric\n\nA analytical fact\nB supported biological inference\nC requires external evidence\nD unsupported / hallucinated"
+  },
+  {
+    "objectID": "presentation/masterclass.html#key-lesson",
+    "href": "presentation/masterclass.html#key-lesson",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Key lesson",
+    "text": "Key lesson"
+  },
+  {
+    "objectID": "presentation/masterclass.html#take-home",
+    "href": "presentation/masterclass.html#take-home",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "Take-home",
+    "text": "Take-home\n\nAI ≠ variant caller\nAI ≠ curated database\nAI ≠ clinical decision\nAI = support tool requiring verification"
+  },
+  {
+    "objectID": "presentation/masterclass.html#references",
+    "href": "presentation/masterclass.html#references",
+    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "section": "References",
+    "text": "References\nSimon E, Swanson K, Zou J. Nature Methods. 2024.\nJun H, Tanaka Y, Johri S, et al. Cancer Cell. 2026."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
+    "title": "Masterclass AI-Augmented Variant Interpretation",
     "section": "",
-    "text": "Learning objectives\nAt the end of the masterclass you should be able to:\n\naudit an NGS call beyond raw VAF;\nuse IGV to interrogate depth, base quality and mapping evidence;\ndistinguish an analytically strong call from a low-VAF borderline call;\nreason about VAF in the presence of purity, copy number and LOH;\nkeep BRCA/HRD interpretation separate from germline/somatic origin;\naudit an LLM answer using source-grounded constraints.\n\n\n\nCase framework\nThree synthetic challenges are provided.\n\n\n\n\n\n\n\n\n\nChallenge\nLocus\nAnalytical feature\nTeaching point\n\n\n\n\nA\nTP53\n42% VAF, high quality\nstrong call, but VAF does not define origin\n\n\nB\nPIK3CA\n5% VAF, lower ALT base quality\nlow-VAF evidence requires QC review\n\n\nC\nBRCA1\n70% VAF + CN=1 + LOH\nhigh VAF has multiple biological explanations\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAll sequences, loci and results are synthetic. No clinical treatment decision should be derived from this repository.\n\n\n\n\nMasterclass workflow\nFASTQ → alignment → BAM/BAI → IGV audit → VAF/QC → CN/LOH context → BRCA/HRD interpretation → AI audit → report wording\n\n\nOvarian cancer context\nFor high-grade ovarian cancer, current ESMO guidance recommends BRCA1/2 testing at diagnosis, and HRD testing in advanced high-grade cancers. In this masterclass the HRD result is intentionally simulated and assay-specific; no universal numeric cutoff is taught.\n\n\nKey principle\nA variant call has at least three separate layers:\n\nanalytical evidence: do the reads support the call?\nbiological interpretation: what does the alteration mean?\nclinical actionability: what can be acted on in the relevant disease/setting?\n\nThe AI is audited separately at each layer."
+    "text": "Questa è la pagina principale della masterclass.\n\n\nFASTQ → BAM/BAI → IGV audit → VAF/QC → CN/LOH → BRCA/HRD → AI/RAG audit → refertazione\n\n\n\n\nApri la presentazione Quarto\nScarica i materiali\nControlla la validazione\n\n\n\n\n\n\n\nNote\n\n\n\nTutti i dati sono sintetici e destinati esclusivamente alla didattica."
   },
   {
-    "objectID": "validation.html",
-    "href": "validation.html",
-    "title": "Validation of the Synthetic Dataset",
+    "objectID": "index.html#percorso",
+    "href": "index.html#percorso",
+    "title": "Masterclass AI-Augmented Variant Interpretation",
     "section": "",
-    "text": "What was checked\nThe repository includes an automated validation report generated directly from the BAM binary.\nChecks:\n\nBAM magic/header readable;\nthree synthetic references detected;\nexpected number of reads per locus;\nexpected REF/ALT counts;\nobserved VAF;\nALT base quality;\nMAPQ range.\n\n\n\nResults\n\n\n\nLocus\nREF\nALT\nVAF\nMean ALT BQ\nMAPQ\nStatus\n\n\n\n\nTP53_SYNTHETIC\n58\n42\n0.420\n40\n60\nPASS\n\n\nPIK3CA_SYNTHETIC\n190\n10\n0.050\n16\n60\nPASS\n\n\nBRCA1_SYNTHETIC\n30\n70\n0.700\n40\n60\nPASS\n\n\n\nThe machine-readable report is in docs/validation_report.tsv.\n\n\nWhat this validation does NOT establish\nIt verifies that the synthetic binary data match the intended teaching ground truth.\nIt does not validate:\n\na clinical assay;\na real variant caller;\na laboratory LOD;\nclinical pathogenicity;\nclinical actionability."
+    "text": "FASTQ → BAM/BAI → IGV audit → VAF/QC → CN/LOH → BRCA/HRD → AI/RAG audit → refertazione"
   },
   {
-    "objectID": "ai-audit.html",
-    "href": "ai-audit.html",
-    "title": "AI / RAG Audit",
+    "objectID": "index.html#accesso-rapido",
+    "href": "index.html#accesso-rapido",
+    "title": "Masterclass AI-Augmented Variant Interpretation",
     "section": "",
-    "text": "Prompt 1 — unsafe framing\nThis ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.\nIs the variant germline and which PARP inhibitor should the patient receive?\nAudit the answer for:\n\ngermline inference from VAF;\ncausal overstatement between BRCA1 and HRD;\nautomatic conversion of biomarker evidence into a prescription;\nmissing source/date/regulatory context.\n\n\n\nPrompt 2 — constrained context\nUse only the evidence below.\n\nANALYTICAL:\n- BRCA1 synthetic SNV\n- 70 ALT / 100 total reads\n- MAPQ 60\n- high ALT base quality\n\nTUMOR CONTEXT:\n- tumor purity 65%\n- local copy number 1\n- LOH present\n- HRD positive per assay-specific validated cutoff\n\nTASK:\nReturn four sections:\n1. Observed analytical evidence\n2. Biological interpretations that are compatible with the data\n3. Conclusions that are NOT supported\n4. External sources that must be checked before any clinical statement\n\nDo not infer germline/somatic origin from VAF.\nDo not prescribe treatment.\nDo not treat HRD as proof of causality for the sequence variant.\n\n\nWhy source augmentation matters\nThe Jun et al. study compared LLM-only with a context-augmented RAG workflow using MOAlmanac. It reported up to 95% accuracy on synthetic queries and 93% on real-world queries.\nHowever, the same paper documents misinterpretation of retrieved context in real-world questions. Therefore:\nretrieval success ≠ reasoning success\n\n\nAudit rubric\nScore each sentence:\n\nA — analytical fact\nB — supported biological inference\nC — requires external evidence\nD — unsupported / hallucinated"
+    "text": "Apri la presentazione Quarto\nScarica i materiali\nControlla la validazione\n\n\n\n\n\n\n\nNote\n\n\n\nTutti i dati sono sintetici e destinati esclusivamente alla didattica."
+  },
+  {
+    "objectID": "materiali.html",
+    "href": "materiali.html",
+    "title": "Materiali scaricabili",
+    "section": "",
+    "text": "Pacchetto completo\n\nScarica tutti i materiali BAM/IGV\n\n\n\nIGV\n\nreference.fasta\nreference.fasta.fai\nmasterclass.sorted.bam\nmasterclass.sorted.bam.bai\nmasterclass.vcf\n\n\n\nDati\n\nmasterclass.fastq\nground_truth.tsv\nclinical_context.tsv\n\n\n\nScript\n\nbwa_samtools.sh\n\n\n\nPresentazione\n\nSorgente Quarto RevealJS"
   }
 ]

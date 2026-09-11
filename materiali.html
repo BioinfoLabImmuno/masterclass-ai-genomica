@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Validation of the Synthetic Dataset – Masterclass AI-Augmented Variant Interpretation</title>
+<title>Materiali scaricabili – Masterclass AI Genomica Ovarica</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Masterclass AI-Augmented Variant Interpretation</span>
+    <span class="navbar-title">Masterclass AI Genomica Ovarica</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -98,23 +98,19 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Masterclass</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./exercise.html"> 
-<span class="menu-text">Challenge</span></a>
+    <a class="nav-link" href="./presentation/masterclass.html"> 
+<span class="menu-text">Presentazione</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ai-audit.html"> 
-<span class="menu-text">AI Audit</span></a>
+    <a class="nav-link active" href="./materiali.html" aria-current="page"> 
+<span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./validation.html" aria-current="page"> 
-<span class="menu-text">Validation</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
-<span class="menu-text">Sources</span></a>
+    <a class="nav-link" href="./validazione.html"> 
+<span class="menu-text">Validazione</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -131,9 +127,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-was-checked" id="toc-what-was-checked" class="nav-link active" data-scroll-target="#what-was-checked">What was checked</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#what-this-validation-does-not-establish" id="toc-what-this-validation-does-not-establish" class="nav-link" data-scroll-target="#what-this-validation-does-not-establish">What this validation does NOT establish</a></li>
+  <li><a href="#pacchetto-completo" id="toc-pacchetto-completo" class="nav-link active" data-scroll-target="#pacchetto-completo">Pacchetto completo</a></li>
+  <li><a href="#igv" id="toc-igv" class="nav-link" data-scroll-target="#igv">IGV</a></li>
+  <li><a href="#dati" id="toc-dati" class="nav-link" data-scroll-target="#dati">Dati</a></li>
+  <li><a href="#script" id="toc-script" class="nav-link" data-scroll-target="#script">Script</a></li>
+  <li><a href="#presentazione" id="toc-presentazione" class="nav-link" data-scroll-target="#presentazione">Presentazione</a></li>
   </ul>
 </nav>
 </nav>
@@ -146,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Validation of the Synthetic Dataset</h1>
+<h1 class="title">Materiali scaricabili</h1>
 </div>
 
 
@@ -163,76 +161,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-was-checked" class="level1">
-<h1>What was checked</h1>
-<p>The repository includes an automated validation report generated directly from the BAM binary.</p>
-<p>Checks:</p>
+<section id="pacchetto-completo" class="level1">
+<h1>Pacchetto completo</h1>
 <ul>
-<li>BAM magic/header readable;</li>
-<li>three synthetic references detected;</li>
-<li>expected number of reads per locus;</li>
-<li>expected REF/ALT counts;</li>
-<li>observed VAF;</li>
-<li>ALT base quality;</li>
-<li>MAPQ range.</li>
+<li><a href="downloads/materiali-masterclass.zip">Scarica tutti i materiali BAM/IGV</a></li>
 </ul>
 </section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Locus</th>
-<th style="text-align: right;">REF</th>
-<th style="text-align: right;">ALT</th>
-<th style="text-align: right;">VAF</th>
-<th style="text-align: right;">Mean ALT BQ</th>
-<th style="text-align: right;">MAPQ</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>TP53_SYNTHETIC</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">0.420</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-<tr class="even">
-<td>PIK3CA_SYNTHETIC</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.050</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-<tr class="odd">
-<td>BRCA1_SYNTHETIC</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">0.700</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-</tbody>
-</table>
-<p>The machine-readable report is in <code>docs/validation_report.tsv</code>.</p>
-</section>
-<section id="what-this-validation-does-not-establish" class="level1">
-<h1>What this validation does NOT establish</h1>
-<p>It verifies that the synthetic binary data match the intended teaching ground truth.</p>
-<p>It does <strong>not</strong> validate:</p>
+<section id="igv" class="level1">
+<h1>IGV</h1>
 <ul>
-<li>a clinical assay;</li>
-<li>a real variant caller;</li>
-<li>a laboratory LOD;</li>
-<li>clinical pathogenicity;</li>
-<li>clinical actionability.</li>
+<li><a href="data/reference.fasta">reference.fasta</a></li>
+<li><a href="data/reference.fasta.fai">reference.fasta.fai</a></li>
+<li><a href="alignments/masterclass.sorted.bam">masterclass.sorted.bam</a></li>
+<li><a href="alignments/masterclass.sorted.bam.bai">masterclass.sorted.bam.bai</a></li>
+<li><a href="alignments/masterclass.vcf">masterclass.vcf</a></li>
+</ul>
+</section>
+<section id="dati" class="level1">
+<h1>Dati</h1>
+<ul>
+<li><a href="data/masterclass.fastq">masterclass.fastq</a></li>
+<li><a href="data/ground_truth.tsv">ground_truth.tsv</a></li>
+<li><a href="data/clinical_context.tsv">clinical_context.tsv</a></li>
+</ul>
+</section>
+<section id="script" class="level1">
+<h1>Script</h1>
+<ul>
+<li><a href="scripts/bwa_samtools.sh">bwa_samtools.sh</a></li>
+</ul>
+</section>
+<section id="presentazione" class="level1">
+<h1>Presentazione</h1>
+<ul>
+<li><a href="./presentation/masterclass.html">Sorgente Quarto RevealJS</a></li>
 </ul>
 
 

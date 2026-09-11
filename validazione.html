@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IGV Challenge – Masterclass AI-Augmented Variant Interpretation</title>
+<title>Validazione – Masterclass AI Genomica Ovarica</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Masterclass AI-Augmented Variant Interpretation</span>
+    <span class="navbar-title">Masterclass AI Genomica Ovarica</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -98,23 +98,19 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Masterclass</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./exercise.html" aria-current="page"> 
-<span class="menu-text">Challenge</span></a>
+    <a class="nav-link" href="./presentation/masterclass.html"> 
+<span class="menu-text">Presentazione</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ai-audit.html"> 
-<span class="menu-text">AI Audit</span></a>
+    <a class="nav-link" href="./materiali.html"> 
+<span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./validation.html"> 
-<span class="menu-text">Validation</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
-<span class="menu-text">Sources</span></a>
+    <a class="nav-link active" href="./validazione.html" aria-current="page"> 
+<span class="menu-text">Validazione</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -127,25 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link active" data-scroll-target="#load-the-data">Load the data</a></li>
-  <li><a href="#challenge-a-tp53" id="toc-challenge-a-tp53" class="nav-link" data-scroll-target="#challenge-a-tp53">Challenge A — TP53</a>
-  <ul class="collapse">
-  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
-  </ul></li>
-  <li><a href="#challenge-b-low-vaf-pik3ca" id="toc-challenge-b-low-vaf-pik3ca" class="nav-link" data-scroll-target="#challenge-b-low-vaf-pik3ca">Challenge B — low-VAF PIK3CA</a>
-  <ul class="collapse">
-  <li><a href="#audit-checklist" id="toc-audit-checklist" class="nav-link" data-scroll-target="#audit-checklist">Audit checklist</a></li>
-  </ul></li>
-  <li><a href="#challenge-c-brca1-loh-hrd" id="toc-challenge-c-brca1-loh-hrd" class="nav-link" data-scroll-target="#challenge-c-brca1-loh-hrd">Challenge C — BRCA1 / LOH / HRD</a>
-  <ul class="collapse">
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -156,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IGV Challenge</h1>
+<h1 class="title">Validazione</h1>
 </div>
 
 
@@ -173,109 +151,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="load-the-data" class="level1">
-<h1>Load the data</h1>
-<p>In IGV:</p>
-<ol type="1">
-<li><code>Genomes → Load Genome from File</code></li>
-<li>load <code>data/reference.fasta</code></li>
-<li><code>File → Load from File</code></li>
-<li>load <code>alignments/masterclass.sorted.bam</code></li>
-<li>optionally load <code>alignments/masterclass.vcf</code></li>
-</ol>
-</section>
-<section id="challenge-a-tp53" class="level1">
-<h1>Challenge A — TP53</h1>
-<p>Navigate to:</p>
-<p><code>TP53_SYNTHETIC:1-101</code></p>
-<p>Expected synthetic ground truth:</p>
-<ul>
-<li>REF = 58</li>
-<li>ALT = 42</li>
-<li>VAF = 42%</li>
-<li>ALT base quality = high</li>
-<li>MAPQ = 60</li>
-</ul>
-<section id="question" class="level2">
-<h2 class="anchored" data-anchor-id="question">Question</h2>
-<p>Would you accept the <strong>analytical call</strong>?</p>
-<p>Then ask a different question:</p>
-<p>Does 42% establish germline origin?</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>No.&nbsp;ASCO guidance explicitly states that VAF alone is insufficient to confirm or exclude germline origin.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="challenge-b-low-vaf-pik3ca" class="level1">
-<h1>Challenge B — low-VAF PIK3CA</h1>
-<p>Navigate to:</p>
-<p><code>PIK3CA_SYNTHETIC:1-101</code></p>
-<p>Synthetic ground truth:</p>
-<ul>
-<li>depth = 200</li>
-<li>ALT reads = 10</li>
-<li>VAF = 5%</li>
-<li>ALT bases intentionally have lower quality (mean BQ ≈ 16)</li>
-</ul>
-<section id="audit-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="audit-checklist">Audit checklist</h2>
-<p>Before accepting a 5% variant, inspect:</p>
-<ul>
-<li>base quality;</li>
-<li>mapping quality;</li>
-<li>strand representation;</li>
-<li>position in read;</li>
-<li>local sequence context;</li>
-<li>error profile of the assay;</li>
-<li>validated LOD;</li>
-<li>duplicate/UMI handling where applicable.</li>
-</ul>
-<p>The purpose is <strong>not</strong> to declare 5% false. It is to demonstrate that VAF alone is insufficient for analytical acceptance.</p>
-</section>
-</section>
-<section id="challenge-c-brca1-loh-hrd" class="level1">
-<h1>Challenge C — BRCA1 / LOH / HRD</h1>
-<p>Navigate to:</p>
-<p><code>BRCA1_SYNTHETIC:1-101</code></p>
-<p>Synthetic context:</p>
-<ul>
-<li>REF = 30</li>
-<li>ALT = 70</li>
-<li>VAF = 70%</li>
-<li>tumor purity = 65%</li>
-<li>local copy number = 1</li>
-<li>LOH = present</li>
-<li>HRD = positive according to an assay-specific simulated cutoff</li>
-</ul>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Is the elevated VAF compatible with loss of the wild-type allele?</li>
-<li>Does it prove germline origin?</li>
-<li>Does an HRD-positive result prove that this specific BRCA1 variant caused HRD?</li>
-<li>Can a VUS in an HRR gene be promoted to pathogenic because HRD is positive?</li>
-</ol>
-<p>Expected reasoning:</p>
-<ul>
-<li>CN/LOH can materially alter VAF.</li>
-<li>germline vs somatic origin cannot be inferred from VAF alone.</li>
-<li>HRD is a genomic phenotype/test result, not analytical confirmation of a specific sequence variant.</li>
-<li>a VUS remains a VUS unless variant-level evidence changes its classification.</li>
-</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Locus</th>
+<th style="text-align: right;">REF</th>
+<th style="text-align: right;">ALT</th>
+<th style="text-align: right;">VAF</th>
+<th style="text-align: right;">ALT BQ</th>
+<th style="text-align: right;">MAPQ</th>
+<th>Stato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TP53_SYNTHETIC</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">42%</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">60</td>
+<td>PASS</td>
+</tr>
+<tr class="even">
+<td>PIK3CA_SYNTHETIC</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">60</td>
+<td>PASS</td>
+</tr>
+<tr class="odd">
+<td>BRCA1_SYNTHETIC</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">70%</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">60</td>
+<td>PASS</td>
+</tr>
+</tbody>
+</table>
+<p>La validazione controlla la coerenza del dataset sintetico, non una pipeline clinica.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
