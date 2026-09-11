@@ -1,0 +1,97 @@
+---
+title: "IGV Challenge"
+---
+
+# Load the data
+
+In IGV:
+
+1. `Genomes → Load Genome from File`
+2. load `data/reference.fasta`
+3. `File → Load from File`
+4. load `alignments/masterclass.sorted.bam`
+5. optionally load `alignments/masterclass.vcf`
+
+# Challenge A — TP53
+
+Navigate to:
+
+`TP53_SYNTHETIC:1-101`
+
+Expected synthetic ground truth:
+
+- REF = 58
+- ALT = 42
+- VAF = 42%
+- ALT base quality = high
+- MAPQ = 60
+
+## Question
+
+Would you accept the **analytical call**?
+
+Then ask a different question:
+
+Does 42% establish germline origin?
+
+::: {.callout-warning}
+No. ASCO guidance explicitly states that VAF alone is insufficient to confirm or exclude germline origin.
+:::
+
+# Challenge B — low-VAF PIK3CA
+
+Navigate to:
+
+`PIK3CA_SYNTHETIC:1-101`
+
+Synthetic ground truth:
+
+- depth = 200
+- ALT reads = 10
+- VAF = 5%
+- ALT bases intentionally have lower quality (mean BQ ≈ 16)
+
+## Audit checklist
+
+Before accepting a 5% variant, inspect:
+
+- base quality;
+- mapping quality;
+- strand representation;
+- position in read;
+- local sequence context;
+- error profile of the assay;
+- validated LOD;
+- duplicate/UMI handling where applicable.
+
+The purpose is **not** to declare 5% false. It is to demonstrate that VAF alone is insufficient for analytical acceptance.
+
+# Challenge C — BRCA1 / LOH / HRD
+
+Navigate to:
+
+`BRCA1_SYNTHETIC:1-101`
+
+Synthetic context:
+
+- REF = 30
+- ALT = 70
+- VAF = 70%
+- tumor purity = 65%
+- local copy number = 1
+- LOH = present
+- HRD = positive according to an assay-specific simulated cutoff
+
+## Questions
+
+1. Is the elevated VAF compatible with loss of the wild-type allele?
+2. Does it prove germline origin?
+3. Does an HRD-positive result prove that this specific BRCA1 variant caused HRD?
+4. Can a VUS in an HRR gene be promoted to pathogenic because HRD is positive?
+
+Expected reasoning:
+
+- CN/LOH can materially alter VAF.
+- germline vs somatic origin cannot be inferred from VAF alone.
+- HRD is a genomic phenotype/test result, not analytical confirmation of a specific sequence variant.
+- a VUS remains a VUS unless variant-level evidence changes its classification.

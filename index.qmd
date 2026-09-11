@@ -1,0 +1,47 @@
+---
+title: "AI-Augmented Variant Interpretation in Ovarian Cancer"
+subtitle: "Advanced masterclass for clinical biologists"
+---
+
+# Learning objectives
+
+At the end of the masterclass you should be able to:
+
+1. audit an NGS call beyond raw VAF;
+2. use IGV to interrogate depth, base quality and mapping evidence;
+3. distinguish an analytically strong call from a low-VAF borderline call;
+4. reason about VAF in the presence of purity, copy number and LOH;
+5. keep BRCA/HRD interpretation separate from germline/somatic origin;
+6. audit an LLM answer using source-grounded constraints.
+
+# Case framework
+
+Three synthetic challenges are provided.
+
+| Challenge | Locus | Analytical feature | Teaching point |
+|---|---|---|---|
+| A | TP53 | 42% VAF, high quality | strong call, but VAF does not define origin |
+| B | PIK3CA | 5% VAF, lower ALT base quality | low-VAF evidence requires QC review |
+| C | BRCA1 | 70% VAF + CN=1 + LOH | high VAF has multiple biological explanations |
+
+::: {.callout-important}
+All sequences, loci and results are synthetic. No clinical treatment decision should be derived from this repository.
+:::
+
+# Masterclass workflow
+
+`FASTQ → alignment → BAM/BAI → IGV audit → VAF/QC → CN/LOH context → BRCA/HRD interpretation → AI audit → report wording`
+
+# Ovarian cancer context
+
+For high-grade ovarian cancer, current ESMO guidance recommends BRCA1/2 testing at diagnosis, and HRD testing in advanced high-grade cancers. In this masterclass the HRD result is intentionally **simulated and assay-specific**; no universal numeric cutoff is taught.
+
+# Key principle
+
+A variant call has at least three separate layers:
+
+- **analytical evidence**: do the reads support the call?
+- **biological interpretation**: what does the alteration mean?
+- **clinical actionability**: what can be acted on in the relevant disease/setting?
+
+The AI is audited separately at each layer.

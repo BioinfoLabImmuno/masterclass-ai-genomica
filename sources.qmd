@@ -1,0 +1,51 @@
+---
+title: "Verified Sources"
+---
+
+# AI / biological language models
+
+**Simon E, Swanson K, Zou J. Nature Methods 2024.**
+
+Source claims used:
+
+- natural-language and biological-language models are distinct applications of sequence modelling;
+- LLMs can support literature understanding and bioinformatics coding;
+- hallucinations occur and outputs should be fact-checked;
+- language models do not replace experimental validation.
+
+# Context-augmented precision oncology
+
+**Jun H et al. Cancer Cell 2026.**
+
+Verified source claims used:
+
+- RAG-LLM built with MOAlmanac;
+- up to 95% accuracy on synthetic queries;
+- 93% accuracy on the held-out real-world test setting with hybrid retrieval;
+- real-world failure cases included LLM misinterpretation of retrieved context.
+
+# IGV
+
+Official IGV documentation confirms:
+
+- BAM/CRAM alignment files require an associated index;
+- IGV can display coverage and reference mismatches;
+- coverage details can show nucleotide counts and strand split.
+
+# Germline inference from tumor VAF
+
+ASCO guideline on germline testing panels in patients with cancer:
+
+- VAF from tumor profiling is **not sufficient by itself** to confirm or exclude germline origin;
+- tumor purity and other factors must be considered.
+
+# Ovarian molecular testing
+
+ESMO epithelial ovarian cancer guidance:
+
+- high-grade ovarian cancer should undergo germline and/or somatic BRCA1/2 testing at diagnosis;
+- HRD testing is recommended in advanced high-grade cancers.
+
+# Scope
+
+These sources support the teaching principles. They do not validate the synthetic variants as clinically meaningful variants.

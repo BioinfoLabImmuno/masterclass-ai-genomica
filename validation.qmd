@@ -1,0 +1,39 @@
+---
+title: "Validation of the Synthetic Dataset"
+---
+
+# What was checked
+
+The repository includes an automated validation report generated directly from the BAM binary.
+
+Checks:
+
+- BAM magic/header readable;
+- three synthetic references detected;
+- expected number of reads per locus;
+- expected REF/ALT counts;
+- observed VAF;
+- ALT base quality;
+- MAPQ range.
+
+# Results
+
+| Locus | REF | ALT | VAF | Mean ALT BQ | MAPQ | Status |
+|---|---:|---:|---:|---:|---:|---|
+| TP53_SYNTHETIC | 58 | 42 | 0.420 | 40 | 60 | PASS |
+| PIK3CA_SYNTHETIC | 190 | 10 | 0.050 | 16 | 60 | PASS |
+| BRCA1_SYNTHETIC | 30 | 70 | 0.700 | 40 | 60 | PASS |
+
+The machine-readable report is in `docs/validation_report.tsv`.
+
+# What this validation does NOT establish
+
+It verifies that the synthetic binary data match the intended teaching ground truth.
+
+It does **not** validate:
+
+- a clinical assay;
+- a real variant caller;
+- a laboratory LOD;
+- clinical pathogenicity;
+- clinical actionability.

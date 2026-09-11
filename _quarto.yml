@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs/site
+
+website:
+  title: "Masterclass AI-Augmented Variant Interpretation"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Masterclass
+      - href: exercise.qmd
+        text: Challenge
+      - href: ai-audit.qmd
+        text: AI Audit
+      - href: validation.qmd
+        text: Validation
+      - href: sources.qmd
+        text: Sources
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    smooth-scroll: true
+    code-copy: true
+    css: styles.css

@@ -1,0 +1,4 @@
+locus	position	ref	alt	REF_reads	ALT_reads	VAF	scenario
+TP53_SYNTHETIC	49	G	A	58	42	0.42	High-confidence balanced SNV
+PIK3CA_SYNTHETIC	50	A	G	190	10	0.05	Low-VAF challenge, ALT reads intentionally lower base quality
+BRCA1_SYNTHETIC	56	C	T	30	70	0.7	High-VAF challenge with simulated CN/LOH context
