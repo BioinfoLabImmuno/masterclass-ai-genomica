@@ -1,22 +1,180 @@
 ---
-title: "Masterclass AI-Augmented Variant Interpretation"
-subtitle: "Ovarian Cancer · BAM/IGV · AI audit"
+title: "AI-Augmented Variant Interpretation in Ovarian Cancer"
+subtitle: "Advanced Masterclass for Clinical Biologists"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    progress: true
+    controls: true
+    transition: fade
+    center: false
 ---
 
-# Benvenuti
+## From FASTQ to clinical interpretation
 
-Questa è la pagina principale della masterclass.
+# FASTQ → BAM → IGV → AI
 
-## Percorso
+Advanced molecular diagnostics masterclass
 
-**FASTQ → BAM/BAI → IGV audit → VAF/QC → CN/LOH → BRCA/HRD → AI/RAG audit → refertazione**
+---
 
-## Accesso rapido
+## Challenge A — TP53
 
-- [Apri la presentazione Quarto](presentation/masterclass.html)
-- [Scarica i materiali](materiali.html)
-- [Controlla la validazione](validazione.html)
+- Depth: 100×
+- REF: 58
+- ALT: 42
+- VAF: 42%
+- ALT Base Quality: 40
+- MAPQ: 60
 
-::: {.callout-note}
-Tutti i dati sono sintetici e destinati esclusivamente alla didattica.
-:::
+### Would you call this variant?
+
+---
+
+## What does VAF = 42% mean?
+
+It describes the allelic fraction observed in the sample.
+
+It does **not** by itself establish:
+
+- germline origin
+- somatic origin
+- clonality
+- zygosity
+
+---
+
+## Challenge B — PIK3CA
+
+# Low-VAF call
+
+- Depth: 200×
+- REF: 190
+- ALT: 10
+- VAF: 5%
+- ALT BQ: 16
+- MAPQ: 60
+
+### Would you report it?
+
+---
+
+## Low-VAF audit
+
+Inspect:
+
+- base quality
+- mapping quality
+- strand representation
+- position in read
+- local context
+- assay error profile
+- validated LOD
+
+---
+
+## Challenge C — BRCA1
+
+- REF: 30
+- ALT: 70
+- VAF: 70%
+- tumor purity: 65%
+- local CN: 1
+- LOH: present
+- HRD: positive in simulated assay
+
+### Why can VAF be so high?
+
+---
+
+## Interpretation trap
+
+# 70% VAF ≠ germline
+
+Copy-number loss and LOH can substantially alter the observed VAF.
+
+---
+
+## Introduce AI
+
+### Prompt A
+
+> BRCA1 VAF 70%, LOH present and HRD positive.  
+> Is this germline and clinically actionable?
+
+### Audit the answer
+
+What is:
+
+- observed?
+- inferred?
+- unsupported?
+
+---
+
+## Context-augmented prompt
+
+Provide:
+
+- BAM/IGV evidence
+- QC
+- VAF
+- CN
+- LOH
+- HRD
+- curated evidence
+
+Ask the model to separate:
+
+1. analytical evidence
+2. compatible biological interpretations
+3. unsupported conclusions
+4. external sources required
+
+---
+
+## AI audit rubric
+
+### 🟢 OBSERVED
+Directly supported by data
+
+### 🟡 INFERRED
+Plausible, but needs evidence
+
+### 🔴 UNSUPPORTED
+Not justified by available data
+
+---
+
+## Key lesson
+
+# Retrieval success ≠ reasoning success
+
+Correct context can still be misinterpreted.
+
+---
+
+## Take-home
+
+# FASTQ → BAM → IGV → evidence → context → AI → human verification
+
+AI ≠ variant caller  
+AI ≠ database  
+AI ≠ clinical decision
+
+---
+
+## Materials
+
+[Download BAM / BAI / FASTQ / FASTA / VCF](materiali.html)
+
+[View validation](validazione.html)
+
+---
+
+## End
+
+### AI-Augmented Variant Interpretation in Ovarian Cancer
+
+Advanced Masterclass for Clinical Biologists
