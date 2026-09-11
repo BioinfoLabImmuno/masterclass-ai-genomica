@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Validazione – Masterclass AI Genomica Ovarica</title>
+<title>istruzioni_update – Masterclass AI Genomica Ovarica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -97,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Download</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./validazione.html" aria-current="page"> 
+    <a class="nav-link" href="./validazione.html"> 
 <span class="menu-text">Validazione</span></a>
   </li>  
 </ul>
@@ -113,72 +147,34 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Validazione</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Locus</th>
-<th style="text-align: right;">REF</th>
-<th style="text-align: right;">ALT</th>
-<th style="text-align: right;">VAF</th>
-<th style="text-align: right;">ALT BQ</th>
-<th style="text-align: right;">MAPQ</th>
-<th>Stato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>TP53_SYNTHETIC</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">42%</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-<tr class="even">
-<td>PIK3CA_SYNTHETIC</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">5%</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-<tr class="odd">
-<td>BRCA1_SYNTHETIC</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">70%</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">60</td>
-<td>PASS</td>
-</tr>
-</tbody>
-</table>
-<p>La validazione controlla la coerenza del dataset sintetico, non una pipeline clinica.</p>
+<section id="aggiornamento-masterclass" class="level1">
+<h1>Aggiornamento masterclass</h1>
+<p>Copia questi file nella root del repository:</p>
+<ul>
+<li><code>index.qmd</code></li>
+<li><code>_quarto.yml</code></li>
+<li><code>styles.css</code></li>
+<li>cartella <code>assets/</code></li>
+</ul>
+<p>Poi esegui:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> docs</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">xdg-open</span> docs/index.html</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Enhance RevealJS masterclass with QR and clinical audit slides"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La presentazione online sarà:</p>
+<p>https://bioinfolabimmuno.github.io/masterclass-ai-genomica/</p>
+<p>I materiali saranno:</p>
+<p>https://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
