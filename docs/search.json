@@ -105,150 +105,101 @@
     "text": "Locus\nREF\nALT\nVAF\nALT BQ\nMAPQ\nStato\n\n\n\n\nTP53_SYNTHETIC\n58\n42\n42%\n40\n60\nPASS\n\n\nPIK3CA_SYNTHETIC\n190\n10\n5%\n16\n60\nPASS\n\n\nBRCA1_SYNTHETIC\n30\n70\n70%\n40\n60\nPASS\n\n\n\nLa validazione controlla la coerenza del dataset sintetico, non una pipeline clinica."
   },
   {
-    "objectID": "index.html#from-reads-to-interpretation",
-    "href": "index.html#from-reads-to-interpretation",
+    "objectID": "index.html#from-fastq-to-clinical-interpretation",
+    "href": "index.html#from-fastq-to-clinical-interpretation",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "From reads to interpretation",
-    "text": "From reads to interpretation"
-  },
-  {
-    "objectID": "index.html#qr-code-per-i-materiali",
-    "href": "index.html#qr-code-per-i-materiali",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "QR code per i materiali",
-    "text": "QR code per i materiali\n\n\n\n\nApri o scarica\nMateriali scaricabili\nFile inclusi:\n\nBAM + BAI\nFASTQ + reference FASTA\nVCF\nground truth\nscript BWA/SAMtools\n\n\n\nAprire questa slide all’inizio e far scansionare il QR code. I partecipanti devono scaricare almeno BAM, BAI e reference FASTA per IGV."
-  },
-  {
-    "objectID": "index.html#learning-objectives",
-    "href": "index.html#learning-objectives",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nAt the end of this masterclass you should be able to:\n\naudit an NGS call beyond raw VAF\ninterrogate BAM evidence in IGV\nrecognize a borderline low-VAF call\nintegrate purity, copy number and LOH\nseparate BRCA/HRD biology from germline/somatic origin\naudit LLM output using source-grounded evidence"
-  },
-  {
-    "objectID": "index.html#analytical-workflow",
-    "href": "index.html#analytical-workflow",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Analytical workflow",
-    "text": "Analytical workflow\nFASTQ\n  ↓\nAlignment\n  ↓\nBAM / BAI\n  ↓\nIGV visual audit\n  ↓\nVariant evidence\n  ↓\nVAF + QC\n  ↓\nCN / LOH / HRD context\n  ↓\nAI-assisted interpretation\n  ↓\nHuman verification"
-  },
-  {
-    "objectID": "index.html#igv-setup",
-    "href": "index.html#igv-setup",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "IGV setup",
-    "text": "IGV setup\nLoad in IGV:\ndata/reference.fasta\nalignments/masterclass.sorted.bam\nalignments/masterclass.vcf\nThen inspect:\n\ncoverage track\nmismatches\nbase quality\nmapping quality\nstrand distribution\nlocal context"
+    "section": "From FASTQ to clinical interpretation",
+    "text": "From FASTQ to clinical interpretation"
   },
   {
     "objectID": "index.html#challenge-a-tp53",
     "href": "index.html#challenge-a-tp53",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
     "section": "Challenge A — TP53",
-    "text": "Challenge A — TP53\nHigh-confidence analytical call\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n100×\n\n\nREF\n58\n\n\nALT\n42\n\n\nVAF\n42%\n\n\nALT BQ\n40\n\n\nMAPQ\n60"
+    "text": "Challenge A — TP53\n\nDepth: 100×\nREF: 58\nALT: 42\nVAF: 42%\nALT Base Quality: 40\nMAPQ: 60\n\nWould you call this variant?"
   },
   {
-    "objectID": "index.html#vaf-interpretation-trap",
-    "href": "index.html#vaf-interpretation-trap",
+    "objectID": "index.html#what-does-vaf-42-mean",
+    "href": "index.html#what-does-vaf-42-mean",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "VAF interpretation trap",
-    "text": "VAF interpretation trap"
+    "section": "What does VAF = 42% mean?",
+    "text": "What does VAF = 42% mean?\nIt describes the allelic fraction observed in the sample.\nIt does not by itself establish:\n\ngermline origin\nsomatic origin\nclonality\nzygosity"
   },
   {
     "objectID": "index.html#challenge-b-pik3ca",
     "href": "index.html#challenge-b-pik3ca",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
     "section": "Challenge B — PIK3CA",
-    "text": "Challenge B — PIK3CA\nLow-VAF borderline call\n\n\n\nMetric\nValue\n\n\n\n\nDepth\n200×\n\n\nREF\n190\n\n\nALT\n10\n\n\nVAF\n5%\n\n\nALT BQ\n16\n\n\nMAPQ\n60"
+    "text": "Challenge B — PIK3CA"
   },
   {
-    "objectID": "index.html#low-vaf-audit-checklist",
-    "href": "index.html#low-vaf-audit-checklist",
+    "objectID": "index.html#low-vaf-audit",
+    "href": "index.html#low-vaf-audit",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Low-VAF audit checklist",
-    "text": "Low-VAF audit checklist\nBefore accepting a low-VAF variant, review:\n\n\n\nbase quality\nmapping quality\nstrand balance\nposition in read\n\n\n\nlocal sequence context\nassay error profile\nduplicate / UMI behavior\nvalidated LOD"
+    "section": "Low-VAF audit",
+    "text": "Low-VAF audit\nInspect:\n\nbase quality\nmapping quality\nstrand representation\nposition in read\nlocal context\nassay error profile\nvalidated LOD"
   },
   {
-    "objectID": "index.html#challenge-c-brca1-loh-hrd",
-    "href": "index.html#challenge-c-brca1-loh-hrd",
+    "objectID": "index.html#challenge-c-brca1",
+    "href": "index.html#challenge-c-brca1",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Challenge C — BRCA1 / LOH / HRD",
-    "text": "Challenge C — BRCA1 / LOH / HRD\n\n\n\nMetric\nValue\n\n\n\n\nREF\n30\n\n\nALT\n70\n\n\nVAF\n70%\n\n\nTumor purity\n65%\n\n\nLocal CN\n1\n\n\nLOH\npresent\n\n\nHRD\npositive, simulated assay"
+    "section": "Challenge C — BRCA1",
+    "text": "Challenge C — BRCA1\n\nREF: 30\nALT: 70\nVAF: 70%\ntumor purity: 65%\nlocal CN: 1\nLOH: present\nHRD: positive in simulated assay\n\nWhy can VAF be so high?"
   },
   {
-    "objectID": "index.html#brca1-interpretation-trap",
-    "href": "index.html#brca1-interpretation-trap",
+    "objectID": "index.html#interpretation-trap",
+    "href": "index.html#interpretation-trap",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "BRCA1 interpretation trap",
-    "text": "BRCA1 interpretation trap"
+    "section": "Interpretation trap",
+    "text": "Interpretation trap"
   },
   {
-    "objectID": "index.html#hrd-variant-confirmation",
-    "href": "index.html#hrd-variant-confirmation",
+    "objectID": "index.html#introduce-ai",
+    "href": "index.html#introduce-ai",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "HRD ≠ variant confirmation",
-    "text": "HRD ≠ variant confirmation\nHRD positivity is a genomic phenotype / assay result.\nIt does not analytically confirm:\n\nthe sequence variant\ngermline origin\npathogenicity\ncausality of this specific BRCA1 alteration"
+    "section": "Introduce AI",
+    "text": "Introduce AI\nPrompt A\n\nBRCA1 VAF 70%, LOH present and HRD positive.\nIs this germline and clinically actionable?\n\nAudit the answer\nWhat is:\n\nobserved?\ninferred?\nunsupported?"
   },
   {
-    "objectID": "index.html#prompt-a-unsafe-framing",
-    "href": "index.html#prompt-a-unsafe-framing",
+    "objectID": "index.html#context-augmented-prompt",
+    "href": "index.html#context-augmented-prompt",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Prompt A — unsafe framing",
-    "text": "Prompt A — unsafe framing\n\nThis ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.\nIs it germline and which PARP inhibitor should the patient receive?\n\nAudit the answer\nWhat is:\n\nobserved?\ninferred?\ninvented?"
-  },
-  {
-    "objectID": "index.html#prompt-b-constrained-context",
-    "href": "index.html#prompt-b-constrained-context",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Prompt B — constrained context",
-    "text": "Prompt B — constrained context\nUse only the evidence below.\n\nANALYTICAL:\n- BAM/IGV: 70 ALT / 100 total reads\n- VAF 70%\n- MAPQ 60\n- high ALT base quality\n\nTUMOR CONTEXT:\n- tumor purity 65%\n- local CN=1\n- LOH present\n- HRD positive, assay-specific\n\nReturn:\n1. observed analytical evidence\n2. compatible biological interpretations\n3. unsupported conclusions\n4. external sources required"
+    "section": "Context-augmented prompt",
+    "text": "Context-augmented prompt\nProvide:\n\nBAM/IGV evidence\nQC\nVAF\nCN\nLOH\nHRD\ncurated evidence\n\nAsk the model to separate:\n\nanalytical evidence\ncompatible biological interpretations\nunsupported conclusions\nexternal sources required"
   },
   {
     "objectID": "index.html#ai-audit-rubric",
     "href": "index.html#ai-audit-rubric",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
     "section": "AI audit rubric",
-    "text": "AI audit rubric\n\n\nA\nObserved analytical fact\n\nB\nSupported biological inference\n\nC\nNeeds external evidence\n\nD\nUnsupported / hallucinated"
+    "text": "AI audit rubric\n🟢 OBSERVED\nDirectly supported by data\n🟡 INFERRED\nPlausible, but needs evidence\n🔴 UNSUPPORTED\nNot justified by available data"
   },
   {
-    "objectID": "index.html#would-you-sign-this",
-    "href": "index.html#would-you-sign-this",
+    "objectID": "index.html#key-lesson",
+    "href": "index.html#key-lesson",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Would you sign this?",
-    "text": "Would you sign this?\nCandidate AI sentence\n\n“Because BRCA1 VAF is 70% and HRD is positive, the variant is germline and the patient is automatically eligible for PARP inhibitor therapy.”"
+    "section": "Key lesson",
+    "text": "Key lesson"
   },
   {
-    "objectID": "index.html#reporting-language-safer-wording",
-    "href": "index.html#reporting-language-safer-wording",
+    "objectID": "index.html#take-home",
+    "href": "index.html#take-home",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Reporting language — safer wording",
-    "text": "Reporting language — safer wording\nAcceptable structure\n\nAnalytical result: what was observed\nBiological interpretation: what is compatible with the data\nLimitations: what is not established\nClinical correlation: what requires guideline/regulatory verification\n\n\n\n\n\n\n\nNote\n\n\nThe AI can draft; the professional must audit, edit and sign."
+    "section": "Take-home",
+    "text": "Take-home"
   },
   {
-    "objectID": "index.html#key-lesson-from-rag-oncology",
-    "href": "index.html#key-lesson-from-rag-oncology",
+    "objectID": "index.html#materials",
+    "href": "index.html#materials",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Key lesson from RAG oncology",
-    "text": "Key lesson from RAG oncology"
+    "section": "Materials",
+    "text": "Materials\nDownload BAM / BAI / FASTQ / FASTA / VCF\nView validation"
   },
   {
-    "objectID": "index.html#final-synthesis",
-    "href": "index.html#final-synthesis",
+    "objectID": "index.html#end",
+    "href": "index.html#end",
     "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Final synthesis",
-    "text": "Final synthesis"
-  },
-  {
-    "objectID": "index.html#download-validation",
-    "href": "index.html#download-validation",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "Download & validation",
-    "text": "Download & validation\n\nMateriali scaricabili\nValidazione dataset\n\nDirect URL\nhttps://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html"
-  },
-  {
-    "objectID": "index.html#references",
-    "href": "index.html#references",
-    "title": "AI-Augmented Variant Interpretation in Ovarian Cancer",
-    "section": "References",
-    "text": "References\nSimon E, Swanson K, Zou J.\nLanguage models for biological research: a primer. Nature Methods, 2024.\nJun H, Tanaka Y, Johri S, et al.\nA context-augmented large language model for accurate precision oncology medicine recommendations. Cancer Cell, 2026."
+    "section": "End",
+    "text": "End\nAI-Augmented Variant Interpretation in Ovarian Cancer\nAdvanced Masterclass for Clinical Biologists"
   }
 ]

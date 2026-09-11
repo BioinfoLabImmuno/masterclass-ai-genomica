@@ -9,239 +9,99 @@ format:
     controls: true
     transition: fade
     center: false
-    chalkboard: true
-    preview-links: true
-    footer: "Synthetic data · educational use only"
-    css: styles.css
 ---
 
-## From reads to interpretation {.title-slide}
+## From FASTQ to clinical interpretation
 
 # FASTQ → BAM → IGV → AI
 
 Advanced molecular diagnostics masterclass
 
-::: {.small}
-Ovarian cancer case study · BAM/IGV audit · AI/RAG output review
-:::
-
----
-
-## QR code per i materiali
-
-::: {.columns}
-::: {.column width="45%"}
-![](assets/qr_materiali.png){fig-alt="QR code materiali"}
-:::
-
-::: {.column width="55%"}
-### Apri o scarica
-
-[Materiali scaricabili](https://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html)
-
-File inclusi:
-
-- BAM + BAI
-- FASTQ + reference FASTA
-- VCF
-- ground truth
-- script BWA/SAMtools
-:::
-:::
-
-::: notes
-Aprire questa slide all'inizio e far scansionare il QR code. I partecipanti devono scaricare almeno BAM, BAI e reference FASTA per IGV.
-:::
-
----
-
-## Learning objectives
-
-At the end of this masterclass you should be able to:
-
-- audit an NGS call beyond raw VAF
-- interrogate BAM evidence in IGV
-- recognize a borderline low-VAF call
-- integrate purity, copy number and LOH
-- separate BRCA/HRD biology from germline/somatic origin
-- audit LLM output using source-grounded evidence
-
----
-
-## Analytical workflow
-
-```text
-FASTQ
-  ↓
-Alignment
-  ↓
-BAM / BAI
-  ↓
-IGV visual audit
-  ↓
-Variant evidence
-  ↓
-VAF + QC
-  ↓
-CN / LOH / HRD context
-  ↓
-AI-assisted interpretation
-  ↓
-Human verification
-```
-
----
-
-## IGV setup
-
-Load in IGV:
-
-```text
-data/reference.fasta
-alignments/masterclass.sorted.bam
-alignments/masterclass.vcf
-```
-
-Then inspect:
-
-- coverage track
-- mismatches
-- base quality
-- mapping quality
-- strand distribution
-- local context
-
 ---
 
 ## Challenge A — TP53
 
-### High-confidence analytical call
+- Depth: 100×
+- REF: 58
+- ALT: 42
+- VAF: 42%
+- ALT Base Quality: 40
+- MAPQ: 60
 
-| Metric | Value |
-|---|---:|
-| Depth | 100× |
-| REF | 58 |
-| ALT | 42 |
-| VAF | 42% |
-| ALT BQ | 40 |
-| MAPQ | 60 |
-
-# Would you call this variant?
-
-::: notes
-Atteso: sì come chiamata analitica sintetica. Ma non usare la VAF per dichiarare germinale/somatico.
-:::
+### Would you call this variant?
 
 ---
 
-## VAF interpretation trap
+## What does VAF = 42% mean?
 
-# 42% VAF ≠ germline
+It describes the allelic fraction observed in the sample.
 
-VAF describes the **observed allelic fraction in this specimen**.
-
-It does not establish:
+It does **not** by itself establish:
 
 - germline origin
 - somatic origin
-- heterozygosity
 - clonality
-- clinical actionability
+- zygosity
 
 ---
 
 ## Challenge B — PIK3CA
 
-### Low-VAF borderline call
+# Low-VAF call
 
-| Metric | Value |
-|---|---:|
-| Depth | 200× |
-| REF | 190 |
-| ALT | 10 |
-| VAF | 5% |
-| ALT BQ | 16 |
-| MAPQ | 60 |
+- Depth: 200×
+- REF: 190
+- ALT: 10
+- VAF: 5%
+- ALT BQ: 16
+- MAPQ: 60
 
-# Would you report it?
+### Would you report it?
 
 ---
 
-## Low-VAF audit checklist
+## Low-VAF audit
 
-Before accepting a low-VAF variant, review:
+Inspect:
 
-::: {.columns}
-::: {.column width="50%"}
 - base quality
 - mapping quality
-- strand balance
+- strand representation
 - position in read
-:::
-
-::: {.column width="50%"}
-- local sequence context
+- local context
 - assay error profile
-- duplicate / UMI behavior
 - validated LOD
-:::
-:::
-
-# VAF alone is not enough
 
 ---
 
-## Challenge C — BRCA1 / LOH / HRD
+## Challenge C — BRCA1
 
-| Metric | Value |
-|---|---:|
-| REF | 30 |
-| ALT | 70 |
-| VAF | 70% |
-| Tumor purity | 65% |
-| Local CN | 1 |
-| LOH | present |
-| HRD | positive, simulated assay |
+- REF: 30
+- ALT: 70
+- VAF: 70%
+- tumor purity: 65%
+- local CN: 1
+- LOH: present
+- HRD: positive in simulated assay
 
-# Why can VAF be so high?
+### Why can VAF be so high?
 
 ---
 
-## BRCA1 interpretation trap
+## Interpretation trap
 
-# High VAF does not prove germline origin
+# 70% VAF ≠ germline
 
-A high VAF may be compatible with:
-
-- copy-number loss
-- LOH
-- tumor purity effects
-- clonal selection
-- germline or somatic origin
-
-::: {.callout-warning}
-Do not infer germline/somatic origin from tumor VAF alone.
-:::
+Copy-number loss and LOH can substantially alter the observed VAF.
 
 ---
 
-## HRD ≠ variant confirmation
+## Introduce AI
 
-HRD positivity is a **genomic phenotype / assay result**.
+### Prompt A
 
-It does not analytically confirm:
-
-- the sequence variant
-- germline origin
-- pathogenicity
-- causality of this specific BRCA1 alteration
-
----
-
-## Prompt A — unsafe framing
-
-> This ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.  
-> Is it germline and which PARP inhibitor should the patient receive?
+> BRCA1 VAF 70%, LOH present and HRD positive.  
+> Is this germline and clinically actionable?
 
 ### Audit the answer
 
@@ -249,143 +109,72 @@ What is:
 
 - observed?
 - inferred?
-- invented?
+- unsupported?
 
 ---
 
-## Prompt B — constrained context
+## Context-augmented prompt
 
-```text
-Use only the evidence below.
+Provide:
 
-ANALYTICAL:
-- BAM/IGV: 70 ALT / 100 total reads
-- VAF 70%
-- MAPQ 60
-- high ALT base quality
+- BAM/IGV evidence
+- QC
+- VAF
+- CN
+- LOH
+- HRD
+- curated evidence
 
-TUMOR CONTEXT:
-- tumor purity 65%
-- local CN=1
-- LOH present
-- HRD positive, assay-specific
+Ask the model to separate:
 
-Return:
-1. observed analytical evidence
+1. analytical evidence
 2. compatible biological interpretations
 3. unsupported conclusions
 4. external sources required
-```
 
 ---
 
 ## AI audit rubric
 
-::: {.columns}
-::: {.column width="25%"}
-### A
+### 🟢 OBSERVED
+Directly supported by data
 
-Observed analytical fact
-:::
+### 🟡 INFERRED
+Plausible, but needs evidence
 
-::: {.column width="25%"}
-### B
-
-Supported biological inference
-:::
-
-::: {.column width="25%"}
-### C
-
-Needs external evidence
-:::
-
-::: {.column width="25%"}
-### D
-
-Unsupported / hallucinated
-:::
-:::
+### 🔴 UNSUPPORTED
+Not justified by available data
 
 ---
 
-## Would you sign this?
-
-### Candidate AI sentence
-
-> “Because BRCA1 VAF is 70% and HRD is positive, the variant is germline and the patient is automatically eligible for PARP inhibitor therapy.”
-
-# Verdict?
-
-::: fragment
-🔴 **Do not sign.**
-:::
-
-::: fragment
-It overstates germline origin, causality and clinical actionability.
-:::
-
----
-
-## Reporting language — safer wording
-
-### Acceptable structure
-
-1. **Analytical result:** what was observed
-2. **Biological interpretation:** what is compatible with the data
-3. **Limitations:** what is not established
-4. **Clinical correlation:** what requires guideline/regulatory verification
-
-::: {.callout-note}
-The AI can draft; the professional must audit, edit and sign.
-:::
-
----
-
-## Key lesson from RAG oncology
+## Key lesson
 
 # Retrieval success ≠ reasoning success
 
-Context improves performance.
-
-But a model can still:
-
-- retrieve the right evidence
-- misread the clinical setting
-- overgeneralize actionability
-- produce a confident unsupported conclusion
+Correct context can still be misinterpreted.
 
 ---
 
-## Final synthesis
+## Take-home
 
 # FASTQ → BAM → IGV → evidence → context → AI → human verification
 
-**AI ≠ variant caller**
-
-**AI ≠ curated database**
-
-**AI ≠ clinical decision**
-
-**AI = auditable support tool**
+AI ≠ variant caller  
+AI ≠ database  
+AI ≠ clinical decision
 
 ---
 
-## Download & validation
+## Materials
 
-- [Materiali scaricabili](materiali.html)
-- [Validazione dataset](validazione.html)
+[Download BAM / BAI / FASTQ / FASTA / VCF](materiali.html)
 
-### Direct URL
-
-https://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html
+[View validation](validazione.html)
 
 ---
 
-## References
+## End
 
-Simon E, Swanson K, Zou J.  
-*Language models for biological research: a primer.* Nature Methods, 2024.
+### AI-Augmented Variant Interpretation in Ovarian Cancer
 
-Jun H, Tanaka Y, Johri S, et al.  
-*A context-augmented large language model for accurate precision oncology medicine recommendations.* Cancer Cell, 2026.
+Advanced Masterclass for Clinical Biologists

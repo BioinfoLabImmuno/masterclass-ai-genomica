@@ -6,20 +6,10 @@ project:
     - alignments/**
     - scripts/**
     - downloads/**
-    - assets/**
 
 website:
   title: "Masterclass AI Genomica Ovarica"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Presentazione
-      - href: materiali.qmd
-        text: Download
-      - href: validazione.qmd
-        text: Validazione
 
 format:
   html:
     theme: cosmo
-    css: styles.css
