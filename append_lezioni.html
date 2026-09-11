@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>istruzioni – Masterclass AI Genomica Ovarica</title>
+<title>append_lezioni – Masterclass AI Genomica Ovarica</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -125,23 +125,343 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="come-aggiungere-le-3-lezioni-alla-presentazione-esistente" class="level1">
-<h1>Come aggiungere le 3 lezioni alla presentazione esistente</h1>
-<p>Non sostituire il tuo <code>index.qmd</code>.</p>
-<p>Apri <code>index.qmd</code> e aggiungi in fondo il contenuto di:</p>
-<p><code>append_lezioni.qmd</code></p>
-<p>Oppure da terminale:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> append_lezioni.qmd <span class="op">&gt;&gt;</span> index.qmd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> docs</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">xdg-open</span> docs/index.html</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Se il risultato è corretto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add decision framework RNAfusion and SplitFusion modules"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>I tre moduli sono adattati allo stesso stile didattico della masterclass: - domanda/decisione - evidenza analitica - audit - errore da evitare - take-home</p>
+<hr>
+<section id="modulo-finale-1-framework-di-decisione" class="level2">
+<h2 class="anchored" data-anchor-id="modulo-finale-1-framework-di-decisione">Modulo finale 1 — Framework di decisione</h2>
+<section id="dal-risultato-ngs-alla-decisione-clinica" class="level3">
+<h3 class="anchored" data-anchor-id="dal-risultato-ngs-alla-decisione-clinica">Dal risultato NGS alla decisione clinica</h3>
+<p>Il framework proposto nelle lezioni originali separa cinque passaggi:</p>
+<ol type="1">
+<li><strong>Qualità e contesto del dato</strong></li>
+<li><strong>Tiering AMP/ASCO/CAP</strong></li>
+<li><strong>Actionability ESCAT</strong></li>
+<li><strong>Trade-off clinici</strong></li>
+<li><strong>Documentazione</strong></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="qualità-e-contesto-del-dato" class="level2">
+<h2 class="anchored" data-anchor-id="qualità-e-contesto-del-dato">1. Qualità e contesto del dato</h2>
+<p>Prima di classificare una variante chiediti:</p>
+<ul>
+<li>la copertura è adeguata?</li>
+<li>la purezza tumorale è sufficiente?</li>
+<li>il dato è coerente con l’istologia?</li>
+<li>il test è tumor-only o matched?</li>
+<li>il risultato è tecnicamente interpretabile?</li>
+</ul>
+<section id="regola" class="level3">
+<h3 class="anchored" data-anchor-id="regola">Regola</h3>
+</section>
+</section>
+<section id="prima-validità-analitica-poi-interpretazione" class="level1">
+<h1>Prima validità analitica, poi interpretazione</h1>
+<hr>
+<section id="tiering-ampascocap" class="level2">
+<h2 class="anchored" data-anchor-id="tiering-ampascocap">2. Tiering AMP/ASCO/CAP</h2>
+<section id="tier-iiv" class="level3">
+<h3 class="anchored" data-anchor-id="tier-iiv">Tier I–IV</h3>
+<p>Il framework della lezione applica il tiering a:</p>
+<ul>
+<li>SNV / indel</li>
+<li>amplificazioni</li>
+<li>fusioni</li>
+</ul>
+<p>L’obiettivo è separare:</p>
+<p><strong>significato clinico</strong></p>
+<p>da</p>
+<p><strong>semplice presenza dell’alterazione</strong></p>
+<hr>
+</section>
+</section>
+<section id="actionability-escat" class="level2">
+<h2 class="anchored" data-anchor-id="actionability-escat">3. Actionability — ESCAT</h2>
+<section id="domanda" class="level3">
+<h3 class="anchored" data-anchor-id="domanda">Domanda</h3>
+<p>Quanto è forte l’evidenza che collega:</p>
+</section>
+</section>
+</section>
+<section id="alterazione-farmaco-tumore-setting" class="level1">
+<h1>alterazione → farmaco → tumore → setting?</h1>
+<p>La lezione utilizza ESCAT come livello di actionability clinica.</p>
+<section id="punto-chiave" class="level3">
+<h3 class="anchored" data-anchor-id="punto-chiave">Punto chiave</h3>
+</section>
+</section>
+<section id="variant-pathogenicity-actionability" class="level1">
+<h1>Variant pathogenicity ≠ actionability</h1>
+<hr>
+<section id="trade-off-e-documentazione" class="level2">
+<h2 class="anchored" data-anchor-id="trade-off-e-documentazione">4. Trade-off e documentazione</h2>
+<p>La decisione finale non è solo genomica.</p>
+<p>Integra:</p>
+<ul>
+<li>beneficio atteso</li>
+<li>tossicità</li>
+<li>logistica</li>
+<li>preferenze del paziente</li>
+<li>alternative</li>
+<li>trial clinici</li>
+<li>follow-up</li>
+</ul>
+<hr>
+</section>
+<section id="aleatoric-vs-epistemic-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="aleatoric-vs-epistemic-uncertainty">Aleatoric vs epistemic uncertainty</h2>
+<section id="aleatoric" class="level3">
+<h3 class="anchored" data-anchor-id="aleatoric">Aleatoric</h3>
+<p>Incertezza intrinseca al dato.</p>
+</section>
+<section id="epistemic" class="level3">
+<h3 class="anchored" data-anchor-id="epistemic">Epistemic</h3>
+<p>Incertezza dovuta a:</p>
+<ul>
+<li>limiti del modello</li>
+<li>limiti del dato</li>
+<li>tumor-only</li>
+<li>conoscenza incompleta</li>
+</ul>
+</section>
+<section id="ai-audit" class="level3">
+<h3 class="anchored" data-anchor-id="ai-audit">AI audit</h3>
+<p><strong>Il modello dichiara quale tipo di incertezza sta gestendo?</strong></p>
+<hr>
+</section>
+</section>
+<section id="modulo-finale-2-rnafusion" class="level2">
+<h2 class="anchored" data-anchor-id="modulo-finale-2-rnafusion">Modulo finale 2 — RNAfusion</h2>
+<section id="una-pipeline-riproducibile-per-fusioni-rna-seq" class="level3">
+<h3 class="anchored" data-anchor-id="una-pipeline-riproducibile-per-fusioni-rna-seq">Una pipeline riproducibile per fusioni RNA-seq</h3>
+<p>La lezione descrive <strong>RNAfusion</strong> come pipeline <strong>nf-core</strong> costruita con:</p>
+<ul>
+<li>Nextflow</li>
+<li>Docker / Singularity</li>
+<li>workflow standardizzato</li>
+<li>supporto HPC / cloud</li>
+<li>report HTML</li>
+<li>controlli nf-core</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="rnafusion-perché-interessa-il-laboratorio-clinico" class="level2">
+<h2 class="anchored" data-anchor-id="rnafusion-perché-interessa-il-laboratorio-clinico">RNAfusion — perché interessa il laboratorio clinico?</h2>
+<section id="riproducibilità" class="level3">
+<h3 class="anchored" data-anchor-id="riproducibilità">Riproducibilità</h3>
+<p>Stesso workflow<br>
+→ stesso ambiente software<br>
+→ maggiore tracciabilità</p>
+</section>
+<section id="portabilità" class="level3">
+<h3 class="anchored" data-anchor-id="portabilità">Portabilità</h3>
+<p>Laptop / server / HPC / cloud</p>
+</section>
+<section id="standardizzazione" class="level3">
+<h3 class="anchored" data-anchor-id="standardizzazione">Standardizzazione</h3>
+<p>Riduce la variabilità operativa tra analisi.</p>
+<hr>
+</section>
+</section>
+<section id="rnafusion-esempio-di-esecuzione" class="level2">
+<h2 class="anchored" data-anchor-id="rnafusion-esempio-di-esecuzione">RNAfusion — esempio di esecuzione</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run nf-core/rnafusion <span class="at">-profile</span> test,docker</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="domanda-per-la-masterclass" class="level3">
+<h3 class="anchored" data-anchor-id="domanda-per-la-masterclass">Domanda per la masterclass</h3>
+</section>
+</section>
+</section>
+<section id="una-pipeline-riproducibile-rende-automaticamente-clinicamente-valido-il-risultato" class="level1">
+<h1>Una pipeline riproducibile rende automaticamente clinicamente valido il risultato?</h1>
+<div class="fragment">
+<p><strong>No.</strong></p>
+</div>
+<div class="fragment">
+<p>La riproducibilità del workflow non sostituisce validazione analitica, QC e interpretazione.</p>
+</div>
+<hr>
+<section id="rnafusion-evidenza-di-fusione" class="level2">
+<h2 class="anchored" data-anchor-id="rnafusion-evidenza-di-fusione">RNAfusion — evidenza di fusione</h2>
+<p>La lezione richiama anche il supporto fusion di <strong>kallisto</strong>:</p>
+<ul>
+<li>identificazione di read pair coinvolti in potenziali breakpoint</li>
+<li>modalità <code>--fusion</code></li>
+<li>output <code>fusion.txt</code></li>
+<li>processamento downstream con <strong>pizzly</strong></li>
+</ul>
+<section id="audit" class="level3">
+<h3 class="anchored" data-anchor-id="audit">Audit</h3>
+<p>Il nome di una fusione non basta.</p>
+<p>Serve valutare <strong>come</strong> è stata chiamata.</p>
+<hr>
+</section>
+</section>
+<section id="modulo-finale-3-splitfusion" class="level2">
+<h2 class="anchored" data-anchor-id="modulo-finale-3-splitfusion">Modulo finale 3 — SplitFusion</h2>
+<section id="dallo-split-read-al-breakpoint" class="level3">
+<h3 class="anchored" data-anchor-id="dallo-split-read-al-breakpoint">Dallo split-read al breakpoint</h3>
+<p>La lezione descrive SplitFusion come metodo che sfrutta:</p>
+</section>
+</section>
+</section>
+<section id="chimeric-split-read-alignments-di-bwa-mem" class="level1">
+<h1>chimeric split-read alignments di BWA-MEM</h1>
+<p>Applicabile a:</p>
+<ul>
+<li>RNA-seq</li>
+<li>Anchored Multiplex PCR</li>
+</ul>
+<hr>
+<section id="splitfusion-pipeline-analitica" class="level2">
+<h2 class="anchored" data-anchor-id="splitfusion-pipeline-analitica">SplitFusion — pipeline analitica</h2>
+<ol type="1">
+<li>reference alignment e deduplication</li>
+<li>CIGAR transformation</li>
+<li>candidate breakpoint calling</li>
+<li>initial breakpoint filtering</li>
+<li>gene annotation</li>
+<li>frame-ness</li>
+<li>exon-boundary analysis</li>
+<li>further filtering</li>
+<li>reporting e visualization</li>
+</ol>
+<hr>
+</section>
+<section id="splitfusion-evidenza-da-auditare" class="level2">
+<h2 class="anchored" data-anchor-id="splitfusion-evidenza-da-auditare">SplitFusion — evidenza da auditare</h2>
+<p>Per una fusione clinicamente interpretabile valuta:</p>
+<ul>
+<li>split reads</li>
+<li>breakpoint consistency</li>
+<li>unique fragment support</li>
+<li>exon boundaries</li>
+<li>frame-ness</li>
+<li>mapping ambiguity</li>
+<li>eventuali artefatti ricorrenti</li>
+</ul>
+<section id="domanda-1" class="level3">
+<h3 class="anchored" data-anchor-id="domanda-1">Domanda</h3>
+</section>
+</section>
+</section>
+<section id="un-singolo-split-read-è-sufficiente" class="level1">
+<h1>Un singolo split read è sufficiente?</h1>
+<hr>
+<section id="fusioni-vista-integrata" class="level2">
+<h2 class="anchored" data-anchor-id="fusioni-vista-integrata">Fusioni — vista integrata</h2>
+<pre class="text"><code>RNA FASTQ
+   ↓
+alignment / fusion caller
+   ↓
+candidate fusion
+   ↓
+split-read / spanning-read evidence
+   ↓
+breakpoint + transcript context
+   ↓
+QC
+   ↓
+AMP/ASCO/CAP
+   ↓
+ESCAT / actionability
+   ↓
+AI-assisted synthesis
+   ↓
+human verification</code></pre>
+<hr>
+</section>
+<section id="fusion-ai-prompt-troppo-generico" class="level2">
+<h2 class="anchored" data-anchor-id="fusion-ai-prompt-troppo-generico">Fusion AI prompt — troppo generico</h2>
+<blockquote class="blockquote">
+<p>È stata identificata una fusione GeneA–GeneB.<br>
+È clinicamente rilevante e quale terapia devo usare?</p>
+</blockquote>
+<section id="problema" class="level3">
+<h3 class="anchored" data-anchor-id="problema">Problema</h3>
+<p>Mancano:</p>
+<ul>
+<li>supporto analitico</li>
+<li>breakpoint</li>
+<li>frame</li>
+<li>transcript</li>
+<li>tumor type</li>
+<li>tier</li>
+<li>setting clinico</li>
+<li>evidenza regolatoria</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="fusion-ai-prompt-strutturato" class="level2">
+<h2 class="anchored" data-anchor-id="fusion-ai-prompt-strutturato">Fusion AI prompt — strutturato</h2>
+<pre class="text"><code>ANALYTICAL EVIDENCE
+- split-read count
+- spanning-read count
+- breakpoint
+- MAPQ
+- strand orientation
+- in-frame / out-of-frame
+- transcript / exon context
+
+CLINICAL CONTEXT
+- tumor type
+- AMP/ASCO/CAP tier
+- ESCAT level, if established
+
+Return:
+1. observed evidence
+2. biological interpretation
+3. evidence requiring external verification
+4. unsupported conclusions</code></pre>
+<hr>
+</section>
+<section id="le-tre-indicazioni-finali" class="level2">
+<h2 class="anchored" data-anchor-id="le-tre-indicazioni-finali">Le tre indicazioni finali</h2>
+<section id="non-saltare-il-livello-analitico" class="level3">
+<h3 class="anchored" data-anchor-id="non-saltare-il-livello-analitico">1 — Non saltare il livello analitico</h3>
+</section>
+</section>
+</section>
+<section id="detection-interpretation" class="level1">
+<h1>Detection ≠ interpretation</h1>
+<p>FASTQ / BAM / IGV / QC vengono prima del tiering.</p>
+<hr>
+<section id="le-tre-indicazioni-finali-1" class="level2">
+<h2 class="anchored" data-anchor-id="le-tre-indicazioni-finali-1">Le tre indicazioni finali</h2>
+<section id="non-confondere-standardizzazione-e-validità-clinica" class="level3">
+<h3 class="anchored" data-anchor-id="non-confondere-standardizzazione-e-validità-clinica">2 — Non confondere standardizzazione e validità clinica</h3>
+</section>
+</section>
+</section>
+<section id="reproducible-pipeline-clinically-validated-result" class="level1">
+<h1>Reproducible pipeline ≠ clinically validated result</h1>
+<p>RNAfusion / SplitFusion possono strutturare l’analisi, ma QC e validazione restano necessari.</p>
+<hr>
+<section id="le-tre-indicazioni-finali-2" class="level2">
+<h2 class="anchored" data-anchor-id="le-tre-indicazioni-finali-2">Le tre indicazioni finali</h2>
+<section id="non-lasciare-che-lai-fonda-livelli-diversi" class="level3">
+<h3 class="anchored" data-anchor-id="non-lasciare-che-lai-fonda-livelli-diversi">3 — Non lasciare che l’AI fonda livelli diversi</h3>
+</section>
+</section>
+</section>
+<section id="analytical-validity" class="level1">
+<h1>Analytical validity</h1>
+<p>↓ # Biological meaning ↓ # Clinical actionability ↓ # Clinical decision</p>
+<p>Devono rimanere esplicitamente separati.</p>
+<hr>
+<section id="chiusura-della-masterclass" class="level2">
+<h2 class="anchored" data-anchor-id="chiusura-della-masterclass">Chiusura della masterclass</h2>
+</section>
+</section>
+<section id="evidence-first.-context-second.-ai-third." class="level1">
+<h1>Evidence first. Context second. AI third.</h1>
+<section id="human-verification-always." class="level3">
+<h3 class="anchored" data-anchor-id="human-verification-always.">Human verification always.</h3>
+<p><strong>SNV / indel · CN/LOH · HRD · fusioni · AMP/ASCO/CAP · ESCAT · AI audit</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
