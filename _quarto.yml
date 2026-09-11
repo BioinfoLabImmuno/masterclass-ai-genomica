@@ -2,20 +2,25 @@ project:
   type: website
   output-dir: docs
 
+resources:
+  - data/**
+  - alignments/**
+  - scripts/**
+  - presentation/**
+  - downloads/**
+
 website:
-  title: "Masterclass AI-Augmented Variant Interpretation"
+  title: "Masterclass AI Genomica Ovarica"
   navbar:
     left:
       - href: index.qmd
-        text: Masterclass
-      - href: exercise.qmd
-        text: Challenge
-      - href: ai-audit.qmd
-        text: AI Audit
-      - href: validation.qmd
-        text: Validation
-      - href: sources.qmd
-        text: Sources
+        text: Home
+      - href: presentation/masterclass.qmd
+        text: Presentazione
+      - href: materiali.qmd
+        text: Download
+      - href: validazione.qmd
+        text: Validazione
 
 format:
   html:

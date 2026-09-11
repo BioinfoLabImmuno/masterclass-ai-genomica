@@ -1,0 +1,29 @@
+---
+title: "Materiali scaricabili"
+---
+
+# Pacchetto completo
+
+- [Scarica tutti i materiali BAM/IGV](downloads/materiali-masterclass.zip)
+
+# IGV
+
+- [reference.fasta](data/reference.fasta)
+- [reference.fasta.fai](data/reference.fasta.fai)
+- [masterclass.sorted.bam](alignments/masterclass.sorted.bam)
+- [masterclass.sorted.bam.bai](alignments/masterclass.sorted.bam.bai)
+- [masterclass.vcf](alignments/masterclass.vcf)
+
+# Dati
+
+- [masterclass.fastq](data/masterclass.fastq)
+- [ground_truth.tsv](data/ground_truth.tsv)
+- [clinical_context.tsv](data/clinical_context.tsv)
+
+# Script
+
+- [bwa_samtools.sh](scripts/bwa_samtools.sh)
+
+# Presentazione
+
+- [Sorgente Quarto RevealJS](presentation/masterclass.qmd)

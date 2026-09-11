@@ -1,0 +1,157 @@
+---
+title: "AI-Augmented Variant Interpretation in Ovarian Cancer"
+subtitle: "Advanced masterclass for clinical biologists"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    progress: true
+    controls: true
+    center: false
+---
+
+## Learning objectives
+
+- Audit an NGS call beyond raw VAF
+- Use IGV to inspect depth, base quality and mapping evidence
+- Interpret low-VAF calls critically
+- Integrate purity, copy number and LOH
+- Separate BRCA/HRD biology from germline/somatic origin
+- Audit LLM output with source-grounded constraints
+
+---
+
+## Workflow
+
+# FASTQ → BAM/BAI → IGV → VAF/QC → CN/LOH → AI audit → report
+
+---
+
+## Challenge A — TP53
+
+- 58 REF
+- 42 ALT
+- VAF 42%
+- ALT base quality high
+- MAPQ 60
+
+**Question:** analytically solid call?
+
+**Second question:** does 42% prove germline origin?
+
+---
+
+## Challenge B — PIK3CA low-VAF
+
+- 190 REF
+- 10 ALT
+- VAF 5%
+- ALT base quality intentionally reduced
+
+Audit:
+
+- base quality
+- mapping quality
+- strand representation
+- position-in-read
+- assay error profile
+- validated LOD
+
+---
+
+## Challenge C — BRCA1 / LOH / HRD
+
+- 30 REF
+- 70 ALT
+- VAF 70%
+- simulated purity 65%
+- local CN = 1
+- LOH present
+- HRD positive by simulated assay-specific cutoff
+
+**Question:** does high VAF prove germline origin?
+
+**Question:** does HRD positivity prove causality of this specific BRCA1 variant?
+
+---
+
+## IGV audit
+
+Load:
+
+- `data/reference.fasta`
+- `alignments/masterclass.sorted.bam`
+- optional `alignments/masterclass.vcf`
+
+Inspect:
+
+- coverage
+- mismatches
+- quality
+- strand balance
+- local context
+
+---
+
+## Prompt A — unconstrained
+
+> This ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.  
+> Is it germline and which PARP inhibitor should the patient receive?
+
+Look for unsupported inference.
+
+---
+
+## Prompt B — constrained context
+
+Use only:
+
+- BAM/IGV evidence
+- VAF
+- CN
+- LOH
+- HRD result
+
+Return:
+
+1. observed analytical evidence
+2. compatible biological interpretations
+3. unsupported conclusions
+4. sources that must be checked
+
+---
+
+## AI audit rubric
+
+- **A** analytical fact
+- **B** supported biological inference
+- **C** requires external evidence
+- **D** unsupported / hallucinated
+
+---
+
+## Key lesson
+
+# retrieval success ≠ reasoning success
+
+Context helps.
+
+It does not eliminate interpretation errors.
+
+---
+
+## Take-home
+
+- AI ≠ variant caller
+- AI ≠ curated database
+- AI ≠ clinical decision
+- AI = support tool requiring verification
+
+---
+
+## References
+
+Simon E, Swanson K, Zou J. *Nature Methods*. 2024.
+
+Jun H, Tanaka Y, Johri S, et al. *Cancer Cell*. 2026.

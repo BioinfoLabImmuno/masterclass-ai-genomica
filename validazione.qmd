@@ -1,0 +1,11 @@
+---
+title: "Validazione"
+---
+
+| Locus | REF | ALT | VAF | ALT BQ | MAPQ | Stato |
+|---|---:|---:|---:|---:|---:|---|
+| TP53_SYNTHETIC | 58 | 42 | 42% | 40 | 60 | PASS |
+| PIK3CA_SYNTHETIC | 190 | 10 | 5% | 16 | 60 | PASS |
+| BRCA1_SYNTHETIC | 30 | 70 | 70% | 40 | 60 | PASS |
+
+La validazione controlla la coerenza del dataset sintetico, non una pipeline clinica.

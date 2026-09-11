@@ -1,30 +1,25 @@
-# Advanced Masterclass — AI-Augmented Variant Interpretation in Ovarian Cancer
+# Masterclass AI Genomica Ovarica — GitHub Pages
 
-Audience: clinical biologists / molecular pathology professionals.
+Questa versione contiene:
 
-## GitHub Pages
-The repository includes both Quarto sources and pre-rendered HTML.
+- home page Quarto
+- presentazione Quarto **RevealJS**
+- pagina Download con BAM/BAI/FASTQ/reference/script
+- pagina Validazione
+- workflow GitHub Actions
 
-Fastest publication:
-1. Upload the whole repository to GitHub.
-2. Settings → Pages.
-3. Deploy from branch.
-4. Select `main` and `/docs/site`.
+## Pubblicazione
 
-For automatic Quarto rebuilds, use the included GitHub Actions workflow and publish the `gh-pages` branch.
+```bash
+quarto render
+git add .
+git commit -m "Fix site with RevealJS and downloads"
+git push origin main
+```
 
-## IGV
-Load:
-- `data/reference.fasta`
-- `alignments/masterclass.sorted.bam`
-- optionally `alignments/masterclass.vcf`
+Poi in GitHub:
 
-Synthetic loci:
-- `TP53_SYNTHETIC:1-101`
-- `PIK3CA_SYNTHETIC:1-101`
-- `BRCA1_SYNTHETIC:1-101`
+Settings → Pages → Deploy from a branch → `gh-pages` → `/ (root)`.
 
-## Validation
-See `docs/validation_report.tsv`.
-
-All data are synthetic and for education only.
+URL atteso:
+`https://bioinfolabimmuno.github.io/masterclass-ai-genomica/`
