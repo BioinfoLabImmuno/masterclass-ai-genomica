@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs/site
+  output-dir: docs
 
 website:
   title: "Masterclass AI-Augmented Variant Interpretation"
