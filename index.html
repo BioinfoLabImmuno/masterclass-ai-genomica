@@ -208,69 +208,87 @@
 </div>
 
 </section>
-<section id="from-reads-to-interpretation" class="slide level2 title-slide center">
-<h2>From reads to interpretation</h2>
+<section id="masterclass-map" class="slide level2">
+<h2>Masterclass map</h2>
 </section>
 <section>
-<section id="fastq-bam-igv-ai" class="title-slide slide level1 center">
-<h1>FASTQ → BAM → IGV → AI</h1>
-<p>Advanced molecular diagnostics masterclass</p>
-<div class="small">
-<p>Ovarian cancer case study · BAM/IGV audit · AI/RAG output review</p>
-</div>
+<section id="from-ngs-evidence-to-molecular-decision" class="title-slide slide level1 center">
+<h1>From NGS evidence to molecular decision</h1>
+<ol type="1">
+<li><strong>Framework AMP/ASCO/CAP + ESCAT</strong></li>
+<li><strong>FASTQ → BAM → IGV</strong></li>
+<li><strong>Variant audit: VAF, QC, CN/LOH, HRD</strong></li>
+<li><strong>RNA fusion analysis</strong></li>
+<li><strong>RNAfusion / nf-core</strong></li>
+<li><strong>SplitFusion</strong></li>
+<li><strong>AI / RAG audit</strong></li>
+<li><strong>Reporting</strong></li>
+</ol>
 </section>
-<section id="qr-code-per-i-materiali" class="slide level2">
-<h2>QR code per i materiali</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><img data-src="assets/qr_materiali.png" alt="QR code materiali"></p>
-</div><div class="column" style="width:55%;">
-<h3 id="apri-o-scarica">Apri o scarica</h3>
-<p><a href="https://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html">Materiali scaricabili</a></p>
-<p>File inclusi:</p>
+<section id="lesson-1-framework-di-decisione" class="slide level2">
+<h2>Lesson 1 — Framework di decisione</h2>
+<p>Dal risultato NGS alla decisione:</p>
 <ul>
-<li>BAM + BAI</li>
-<li>FASTQ + reference FASTA</li>
-<li>VCF</li>
-<li>ground truth</li>
-<li>script BWA/SAMtools</li>
-</ul>
-</div></div>
-<aside class="notes">
-<p>Aprire questa slide all’inizio e far scansionare il QR code. I partecipanti devono scaricare almeno BAM, BAI e reference FASTA per IGV.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
-<p>At the end of this masterclass you should be able to:</p>
-<ul>
-<li>audit an NGS call beyond raw VAF</li>
-<li>interrogate BAM evidence in IGV</li>
-<li>recognize a borderline low-VAF call</li>
-<li>integrate purity, copy number and LOH</li>
-<li>separate BRCA/HRD biology from germline/somatic origin</li>
-<li>audit LLM output using source-grounded evidence</li>
+<li>qualità e contesto del dato</li>
+<li>tiering AMP/ASCO/CAP</li>
+<li>actionability ESCAT</li>
+<li>trade-off clinici</li>
+<li>documentazione finale</li>
 </ul>
 </section>
-<section id="analytical-workflow" class="slide level2">
-<h2>Analytical workflow</h2>
+<section id="qualità-e-contesto-del-dato" class="slide level2">
+<h2>Qualità e contesto del dato</h2>
+<p>Prima della classificazione:</p>
+<ul>
+<li>copertura</li>
+<li>purezza</li>
+<li>coerenza istologica</li>
+<li>metodo</li>
+<li>tumor-only vs matched</li>
+</ul>
+</section></section>
+<section>
+<section id="non-interpretare-una-variante-senza-interpretare-il-dato-che-la-sostiene" class="title-slide slide level1 center">
+<h1>Non interpretare una variante senza interpretare il dato che la sostiene</h1>
+
+</section>
+<section id="tiering-e-actionability" class="slide level2">
+<h2>Tiering e actionability</h2>
+<h3 id="ampascocap">AMP/ASCO/CAP</h3>
+<p><strong>Tier I–IV</strong></p>
+<p>per:</p>
+<ul>
+<li>SNV / indel</li>
+<li>amplificazioni</li>
+<li>fusioni</li>
+</ul>
+<h3 id="escat">ESCAT</h3>
+<p>Livelli di actionability clinica basati sulla forza dell’evidenza.</p>
+</section>
+<section id="uncertainty-audit" class="slide level2">
+<h2>Uncertainty audit</h2>
+<h3 id="aleatoric-uncertainty">Aleatoric uncertainty</h3>
+<p>Incertezza intrinseca al dato.</p>
+<h3 id="epistemic-uncertainty">Epistemic uncertainty</h3>
+<p>Incertezza dovuta a:</p>
+<ul>
+<li>limiti del modello</li>
+<li>limiti del dato</li>
+<li>tumor-only</li>
+<li>conoscenza incompleta</li>
+</ul>
+<h3 id="masterclass-question">Masterclass question</h3>
+<p><strong>L’AI distingue i due tipi di incertezza?</strong></p>
+</section>
+<section id="workflow-analitico" class="slide level2">
+<h2>Workflow analitico</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>FASTQ</span>
 <span id="cb1-2"><a aria-label="2"></a>  ↓</span>
 <span id="cb1-3"><a aria-label="3"></a>Alignment</span>
 <span id="cb1-4"><a aria-label="4"></a>  ↓</span>
 <span id="cb1-5"><a aria-label="5"></a>BAM / BAI</span>
 <span id="cb1-6"><a aria-label="6"></a>  ↓</span>
-<span id="cb1-7"><a aria-label="7"></a>IGV visual audit</span>
+<span id="cb1-7"><a aria-label="7"></a>IGV</span>
 <span id="cb1-8"><a aria-label="8"></a>  ↓</span>
 <span id="cb1-9"><a aria-label="9"></a>Variant evidence</span>
 <span id="cb1-10"><a aria-label="10"></a>  ↓</span>
@@ -278,29 +296,14 @@
 <span id="cb1-12"><a aria-label="12"></a>  ↓</span>
 <span id="cb1-13"><a aria-label="13"></a>CN / LOH / HRD context</span>
 <span id="cb1-14"><a aria-label="14"></a>  ↓</span>
-<span id="cb1-15"><a aria-label="15"></a>AI-assisted interpretation</span>
+<span id="cb1-15"><a aria-label="15"></a>Clinical evidence framework</span>
 <span id="cb1-16"><a aria-label="16"></a>  ↓</span>
-<span id="cb1-17"><a aria-label="17"></a>Human verification</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="igv-setup" class="slide level2">
-<h2>IGV setup</h2>
-<p>Load in IGV:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>data/reference.fasta</span>
-<span id="cb2-2"><a aria-label="2"></a>alignments/masterclass.sorted.bam</span>
-<span id="cb2-3"><a aria-label="3"></a>alignments/masterclass.vcf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then inspect:</p>
-<ul>
-<li>coverage track</li>
-<li>mismatches</li>
-<li>base quality</li>
-<li>mapping quality</li>
-<li>strand distribution</li>
-<li>local context</li>
-</ul>
+<span id="cb1-17"><a aria-label="17"></a>AI-assisted interpretation</span>
+<span id="cb1-18"><a aria-label="18"></a>  ↓</span>
+<span id="cb1-19"><a aria-label="19"></a>Human verification</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="challenge-a-tp53" class="slide level2">
 <h2>Challenge A — TP53</h2>
-<h3 id="high-confidence-analytical-call">High-confidence analytical call</h3>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -339,39 +342,10 @@
 <section>
 <section id="would-you-call-this-variant" class="title-slide slide level1 center">
 <h1>Would you call this variant?</h1>
-<aside class="notes">
-<p>Atteso: sì come chiamata analitica sintetica. Ma non usare la VAF per dichiarare germinale/somatico.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
-<section id="vaf-interpretation-trap" class="slide level2">
-<h2>VAF interpretation trap</h2>
-</section></section>
-<section>
-<section id="vaf-germline" class="title-slide slide level1 center">
-<h1>42% VAF ≠ germline</h1>
-<p>VAF describes the <strong>observed allelic fraction in this specimen</strong>.</p>
-<p>It does not establish:</p>
-<ul>
-<li>germline origin</li>
-<li>somatic origin</li>
-<li>heterozygosity</li>
-<li>clonality</li>
-<li>clinical actionability</li>
-</ul>
-</section>
-<section id="challenge-b-pik3ca" class="slide level2">
-<h2>Challenge B — PIK3CA</h2>
-<h3 id="low-vaf-borderline-call">Low-VAF borderline call</h3>
+<section id="challenge-b-pik3ca-low-vaf" class="slide level2">
+<h2>Challenge B — PIK3CA low-VAF</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -406,256 +380,283 @@
 </tr>
 </tbody>
 </table>
-</section></section>
-<section>
-<section id="would-you-report-it" class="title-slide slide level1 center">
-<h1>Would you report it?</h1>
-
-</section>
-<section id="low-vaf-audit-checklist" class="slide level2">
-<h2>Low-VAF audit checklist</h2>
-<p>Before accepting a low-VAF variant, review:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
+<p>Audit:</p>
 <ul>
 <li>base quality</li>
 <li>mapping quality</li>
 <li>strand balance</li>
-<li>position in read</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>local sequence context</li>
-<li>assay error profile</li>
-<li>duplicate / UMI behavior</li>
+<li>position-in-read</li>
+<li>error profile</li>
 <li>validated LOD</li>
 </ul>
-</div></div>
-</section></section>
-<section>
-<section id="vaf-alone-is-not-enough" class="title-slide slide level1 center">
-<h1>VAF alone is not enough</h1>
-
 </section>
 <section id="challenge-c-brca1-loh-hrd" class="slide level2">
 <h2>Challenge C — BRCA1 / LOH / HRD</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Metric</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>REF</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr class="even">
-<td>ALT</td>
-<td style="text-align: right;">70</td>
-</tr>
-<tr class="odd">
-<td>VAF</td>
-<td style="text-align: right;">70%</td>
-</tr>
-<tr class="even">
-<td>Tumor purity</td>
-<td style="text-align: right;">65%</td>
-</tr>
-<tr class="odd">
-<td>Local CN</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td>LOH</td>
-<td style="text-align: right;">present</td>
-</tr>
-<tr class="odd">
-<td>HRD</td>
-<td style="text-align: right;">positive, simulated assay</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>REF 30</li>
+<li>ALT 70</li>
+<li>VAF 70%</li>
+<li>tumor purity 65%</li>
+<li>local CN = 1</li>
+<li>LOH present</li>
+<li>HRD positive in the simulated assay</li>
+</ul>
 </section></section>
 <section>
-<section id="why-can-vaf-be-so-high" class="title-slide slide level1 center">
-<h1>Why can VAF be so high?</h1>
+<section id="high-vaf-germline" class="title-slide slide level1 center">
+<h1>High VAF ≠ germline</h1>
 
 </section>
-<section id="brca1-interpretation-trap" class="slide level2">
-<h2>BRCA1 interpretation trap</h2>
+<section id="lesson-2-rna-fusion-analysis" class="slide level2">
+<h2>Lesson 2 — RNA fusion analysis</h2>
+<p>Gene fusions can be therapeutically relevant.</p>
+<p>Examples in the source lesson include:</p>
+<ul>
+<li><strong>BCR-ABL</strong></li>
+<li><strong>EML4-ALK</strong></li>
+</ul>
+<p>Fusion calling remains technically challenging because of:</p>
+<ul>
+<li>unknown fusion partners</li>
+<li>low gene expression</li>
+<li>cryptic splice sites</li>
+<li>difficult breakpoint mapping</li>
+<li>poor-quality or low-cellularity specimens</li>
+</ul>
+</section>
+<section id="rnafusion" class="slide level2">
+<h2>RNAfusion</h2>
+<p><strong>RNAfusion</strong> is presented in the source lesson as an <strong>nf-core pipeline</strong> for RNA-seq fusion analysis.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>standardized workflow</li>
+<li>reproducible</li>
+<li>portable</li>
+<li>Nextflow-based</li>
+<li>Docker / Singularity containerization</li>
+<li>HPC and cloud integration</li>
+<li>HTML reports</li>
+<li>nf-core validation / linting</li>
+</ul>
+</section>
+<section id="rnafusion-execution-concept" class="slide level2">
+<h2>RNAfusion — execution concept</h2>
+<p>Example from the source lesson:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="ex">nextflow</span> run nf-core/rnafusion <span class="at">-profile</span> test,docker</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="why-this-matters-clinically">Why this matters clinically</h3>
+<p>Reproducibility is not only convenience.</p>
+<p>It supports:</p>
+<ul>
+<li>traceable software environments</li>
+<li>consistent workflow execution</li>
+<li>easier validation and re-analysis</li>
+</ul>
+</section>
+<section id="rnafusion-fusion-evidence" class="slide level2">
+<h2>RNAfusion — fusion evidence</h2>
+<p>The source lesson also mentions <strong>kallisto fusion support</strong>:</p>
+<ul>
+<li>reads spanning potential fusion breakpoints</li>
+<li><code>--fusion</code> mode</li>
+<li>output to <code>fusion.txt</code></li>
+<li>downstream processing by <strong>pizzly</strong></li>
+</ul>
+<h3 id="masterclass-question-1">Masterclass question</h3>
+<p><strong>What level of analytical evidence is required before a fusion enters clinical interpretation?</strong></p>
+</section>
+<section id="lesson-3-splitfusion" class="slide level2">
+<h2>Lesson 3 — SplitFusion</h2>
+<p><strong>SplitFusion</strong> is presented as a computational fusion-calling method that leverages:</p>
 </section></section>
 <section>
-<section id="high-vaf-does-not-prove-germline-origin" class="title-slide slide level1 center">
-<h1>High VAF does not prove germline origin</h1>
-<p>A high VAF may be compatible with:</p>
+<section id="chimeric-split-read-alignments-from-bwa-mem" class="title-slide slide level1 center">
+<h1>chimeric split-read alignments from BWA-MEM</h1>
+<p>It can be applied to:</p>
 <ul>
-<li>copy-number loss</li>
-<li>LOH</li>
-<li>tumor purity effects</li>
-<li>clonal selection</li>
-<li>germline or somatic origin</li>
-</ul>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>Do not infer germline/somatic origin from tumor VAF alone.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="hrd-variant-confirmation" class="slide level2">
-<h2>HRD ≠ variant confirmation</h2>
-<p>HRD positivity is a <strong>genomic phenotype / assay result</strong>.</p>
-<p>It does not analytically confirm:</p>
-<ul>
-<li>the sequence variant</li>
-<li>germline origin</li>
-<li>pathogenicity</li>
-<li>causality of this specific BRCA1 alteration</li>
+<li>RNA-seq</li>
+<li>Anchored Multiplex PCR data</li>
 </ul>
 </section>
-<section id="prompt-a-unsafe-framing" class="slide level2">
-<h2>Prompt A — unsafe framing</h2>
-<blockquote>
-<p>This ovarian tumor has a BRCA1 variant with VAF 70% and is HRD-positive.<br>
-Is it germline and which PARP inhibitor should the patient receive?</p>
-</blockquote>
-<h3 id="audit-the-answer">Audit the answer</h3>
-<p>What is:</p>
-<ul>
-<li>observed?</li>
-<li>inferred?</li>
-<li>invented?</li>
-</ul>
-</section>
-<section id="prompt-b-constrained-context" class="slide level2">
-<h2>Prompt B — constrained context</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>Use only the evidence below.</span>
-<span id="cb3-2"><a aria-label="2"></a></span>
-<span id="cb3-3"><a aria-label="3"></a>ANALYTICAL:</span>
-<span id="cb3-4"><a aria-label="4"></a>- BAM/IGV: 70 ALT / 100 total reads</span>
-<span id="cb3-5"><a aria-label="5"></a>- VAF 70%</span>
-<span id="cb3-6"><a aria-label="6"></a>- MAPQ 60</span>
-<span id="cb3-7"><a aria-label="7"></a>- high ALT base quality</span>
-<span id="cb3-8"><a aria-label="8"></a></span>
-<span id="cb3-9"><a aria-label="9"></a>TUMOR CONTEXT:</span>
-<span id="cb3-10"><a aria-label="10"></a>- tumor purity 65%</span>
-<span id="cb3-11"><a aria-label="11"></a>- local CN=1</span>
-<span id="cb3-12"><a aria-label="12"></a>- LOH present</span>
-<span id="cb3-13"><a aria-label="13"></a>- HRD positive, assay-specific</span>
-<span id="cb3-14"><a aria-label="14"></a></span>
-<span id="cb3-15"><a aria-label="15"></a>Return:</span>
-<span id="cb3-16"><a aria-label="16"></a>1. observed analytical evidence</span>
-<span id="cb3-17"><a aria-label="17"></a>2. compatible biological interpretations</span>
-<span id="cb3-18"><a aria-label="18"></a>3. unsupported conclusions</span>
-<span id="cb3-19"><a aria-label="19"></a>4. external sources required</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="ai-audit-rubric" class="slide level2">
-<h2>AI audit rubric</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
-<h3 id="a">A</h3>
-<p>Observed analytical fact</p>
-</div><div class="column" style="width:25%;">
-<h3 id="b">B</h3>
-<p>Supported biological inference</p>
-</div><div class="column" style="width:25%;">
-<h3 id="c">C</h3>
-<p>Needs external evidence</p>
-</div><div class="column" style="width:25%;">
-<h3 id="d">D</h3>
-<p>Unsupported / hallucinated</p>
-</div></div>
-</section>
-<section id="would-you-sign-this" class="slide level2">
-<h2>Would you sign this?</h2>
-<h3 id="candidate-ai-sentence">Candidate AI sentence</h3>
-<blockquote>
-<p>“Because BRCA1 VAF is 70% and HRD is positive, the variant is germline and the patient is automatically eligible for PARP inhibitor therapy.”</p>
-</blockquote>
-</section></section>
-<section>
-<section id="verdict" class="title-slide slide level1 center">
-<h1>Verdict?</h1>
-<div class="fragment">
-<p>🔴 <strong>Do not sign.</strong></p>
-</div>
-<div class="fragment">
-<p>It overstates germline origin, causality and clinical actionability.</p>
-</div>
-</section>
-<section id="reporting-language-safer-wording" class="slide level2">
-<h2>Reporting language — safer wording</h2>
-<h3 id="acceptable-structure">Acceptable structure</h3>
+<section id="splitfusion-workflow" class="slide level2">
+<h2>SplitFusion workflow</h2>
+<p>The source lesson describes these computational steps:</p>
 <ol type="1">
-<li><strong>Analytical result:</strong> what was observed</li>
-<li><strong>Biological interpretation:</strong> what is compatible with the data</li>
-<li><strong>Limitations:</strong> what is not established</li>
-<li><strong>Clinical correlation:</strong> what requires guideline/regulatory verification</li>
+<li>reference alignment and deduplication</li>
+<li>CIGAR transformation</li>
+<li>candidate breakpoint calling</li>
+<li>initial breakpoint filtering</li>
+<li>gene annotation, frame-ness and exon-boundary analysis</li>
+<li>further filtering and target reporting</li>
+<li>result reporting and visualization</li>
 </ol>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>The AI can draft; the professional must audit, edit and sign.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="key-lesson-from-rag-oncology" class="slide level2">
-<h2>Key lesson from RAG oncology</h2>
+<section id="splitfusion-why-split-reads-matter" class="slide level2">
+<h2>SplitFusion — why split reads matter</h2>
+<p>Fusion interpretation requires more than detecting two gene names.</p>
+<p>Audit:</p>
+<ul>
+<li>breakpoint support</li>
+<li>split-read evidence</li>
+<li>unique fragment support</li>
+<li>exon-boundary alignment</li>
+<li>frame-ness</li>
+<li>mapping ambiguity</li>
+<li>recurrent technical artifacts</li>
+</ul>
+<h3 id="question">Question</h3>
+<p><strong>Would you report a fusion supported by a single split read?</strong></p>
+</section>
+<section id="fusion-audit-in-igv" class="slide level2">
+<h2>Fusion audit in IGV</h2>
+<p>For a candidate fusion, inspect:</p>
+<ul>
+<li>soft-clipped / split reads</li>
+<li>supplementary alignments</li>
+<li>breakpoint consistency</li>
+<li>read-pair support</li>
+<li>local mappability</li>
+<li>strand orientation</li>
+<li>duplicate evidence</li>
+<li>transcript/exon context</li>
+</ul>
+</section>
+<section id="fusion-result-clinical-framework" class="slide level2">
+<h2>Fusion result → clinical framework</h2>
+</section></section>
+<section>
+<section id="detection-actionability" class="title-slide slide level1 center">
+<h1>Detection ≠ actionability</h1>
+<p>A fusion must pass through:</p>
+<ol type="1">
+<li>analytical validation</li>
+<li>biological interpretation</li>
+<li>AMP/ASCO/CAP tiering</li>
+<li>ESCAT / clinical actionability</li>
+<li>disease-specific context</li>
+<li>report wording</li>
+</ol>
+</section>
+<section id="fusion-ai-prompt-unsafe" class="slide level2">
+<h2>Fusion AI prompt — unsafe</h2>
+<blockquote>
+<p>An RNA fusion was detected between gene A and gene B.<br>
+Is it actionable and what therapy should be given?</p>
+</blockquote>
+<h3 id="why-unsafe">Why unsafe?</h3>
+<p>Missing:</p>
+<ul>
+<li>breakpoint evidence</li>
+<li>reading frame</li>
+<li>transcript context</li>
+<li>quality metrics</li>
+<li>tumor type</li>
+<li>evidence tier</li>
+<li>regulatory context</li>
+</ul>
+</section>
+<section id="fusion-ai-prompt-constrained" class="slide level2">
+<h2>Fusion AI prompt — constrained</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>Use only the following evidence:</span>
+<span id="cb3-2"><a aria-label="2"></a></span>
+<span id="cb3-3"><a aria-label="3"></a>ANALYTICAL</span>
+<span id="cb3-4"><a aria-label="4"></a>- split-read count</span>
+<span id="cb3-5"><a aria-label="5"></a>- spanning-pair count</span>
+<span id="cb3-6"><a aria-label="6"></a>- breakpoint coordinates</span>
+<span id="cb3-7"><a aria-label="7"></a>- mapping quality</span>
+<span id="cb3-8"><a aria-label="8"></a>- strand orientation</span>
+<span id="cb3-9"><a aria-label="9"></a>- in-frame / out-of-frame status</span>
+<span id="cb3-10"><a aria-label="10"></a></span>
+<span id="cb3-11"><a aria-label="11"></a>CLINICAL</span>
+<span id="cb3-12"><a aria-label="12"></a>- tumor type</span>
+<span id="cb3-13"><a aria-label="13"></a>- AMP/ASCO/CAP tier</span>
+<span id="cb3-14"><a aria-label="14"></a>- ESCAT level if available</span>
+<span id="cb3-15"><a aria-label="15"></a></span>
+<span id="cb3-16"><a aria-label="16"></a>Return:</span>
+<span id="cb3-17"><a aria-label="17"></a>1. analytical evidence</span>
+<span id="cb3-18"><a aria-label="18"></a>2. biological interpretation</span>
+<span id="cb3-19"><a aria-label="19"></a>3. actionability requiring external verification</span>
+<span id="cb3-20"><a aria-label="20"></a>4. unsupported conclusions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ai-rag-audit" class="slide level2">
+<h2>AI / RAG audit</h2>
+<p>Classify each AI sentence:</p>
+<h3 id="a-analytical-fact">A — analytical fact</h3>
+<h3 id="b-supported-biological-inference">B — supported biological inference</h3>
+<h3 id="c-requires-external-evidence">C — requires external evidence</h3>
+<h3 id="d-unsupported-hallucinated">D — unsupported / hallucinated</h3>
+</section>
+<section id="key-lesson" class="slide level2">
+<h2>Key lesson</h2>
 </section></section>
 <section>
 <section id="retrieval-success-reasoning-success" class="title-slide slide level1 center">
 <h1>Retrieval success ≠ reasoning success</h1>
-<p>Context improves performance.</p>
-<p>But a model can still:</p>
+<p>Correct context can still be misinterpreted.</p>
+<p>This is especially relevant when AI integrates:</p>
 <ul>
-<li>retrieve the right evidence</li>
-<li>misread the clinical setting</li>
-<li>overgeneralize actionability</li>
-<li>produce a confident unsupported conclusion</li>
+<li>sequence evidence</li>
+<li>fusion nomenclature</li>
+<li>actionability</li>
+<li>therapy recommendations</li>
 </ul>
 </section>
-<section id="final-synthesis" class="slide level2">
-<h2>Final synthesis</h2>
+<section id="reporting-architecture" class="slide level2">
+<h2>Reporting architecture</h2>
+<p>A robust molecular report should separate:</p>
+<h3 id="analytical-observation">1. Analytical observation</h3>
+<h3 id="biological-interpretation">2. Biological interpretation</h3>
+<h3 id="evidence-tier">3. Evidence tier</h3>
+<h3 id="clinical-relevance">4. Clinical relevance</h3>
+<h3 id="limitations">5. Limitations</h3>
+<h3 id="recommended-verification-follow-up">6. Recommended verification / follow-up</h3>
+</section>
+<section id="integrated-masterclass-workflow" class="slide level2">
+<h2>Integrated masterclass workflow</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>FASTQ</span>
+<span id="cb4-2"><a aria-label="2"></a> ↓</span>
+<span id="cb4-3"><a aria-label="3"></a>SNV / indel / CNV / fusion detection</span>
+<span id="cb4-4"><a aria-label="4"></a> ↓</span>
+<span id="cb4-5"><a aria-label="5"></a>BAM / IGV audit</span>
+<span id="cb4-6"><a aria-label="6"></a> ↓</span>
+<span id="cb4-7"><a aria-label="7"></a>QC and analytical acceptance</span>
+<span id="cb4-8"><a aria-label="8"></a> ↓</span>
+<span id="cb4-9"><a aria-label="9"></a>AMP/ASCO/CAP tier</span>
+<span id="cb4-10"><a aria-label="10"></a> ↓</span>
+<span id="cb4-11"><a aria-label="11"></a>ESCAT / clinical evidence</span>
+<span id="cb4-12"><a aria-label="12"></a> ↓</span>
+<span id="cb4-13"><a aria-label="13"></a>AI-assisted synthesis</span>
+<span id="cb4-14"><a aria-label="14"></a> ↓</span>
+<span id="cb4-15"><a aria-label="15"></a>human audit</span>
+<span id="cb4-16"><a aria-label="16"></a> ↓</span>
+<span id="cb4-17"><a aria-label="17"></a>report</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="lesson-resources" class="slide level2">
+<h2>Lesson resources</h2>
+<p>Original lesson files:</p>
+<ul>
+<li><a href="lezioni/02_framework.html">Framework AMP/ASCO/CAP + ESCAT</a></li>
+<li><a href="lezioni/07_fusion.html">RNAfusion</a></li>
+<li><a href="lezioni/08_Fusion2.html">SplitFusion</a></li>
+</ul>
+</section>
+<section id="take-home" class="slide level2">
+<h2>Take-home</h2>
 </section></section>
 <section>
-<section id="fastq-bam-igv-evidence-context-ai-human-verification" class="title-slide slide level1 center">
-<h1>FASTQ → BAM → IGV → evidence → context → AI → human verification</h1>
-<p><strong>AI ≠ variant caller</strong></p>
-<p><strong>AI ≠ curated database</strong></p>
-<p><strong>AI ≠ clinical decision</strong></p>
-<p><strong>AI = auditable support tool</strong></p>
+<section id="the-ai-should-never-collapse-these-layers" class="title-slide slide level1 center">
+<h1>The AI should never collapse these layers</h1>
+<p><strong>analytical validity</strong></p>
+<p>↓</p>
+<p><strong>biological meaning</strong></p>
+<p>↓</p>
+<p><strong>clinical actionability</strong></p>
+<p>↓</p>
+<p><strong>clinical decision</strong></p>
 </section>
-<section id="download-validation" class="slide level2">
-<h2>Download &amp; validation</h2>
-<ul>
-<li><a href="materiali.html">Materiali scaricabili</a></li>
-<li><a href="validazione.html">Validazione dataset</a></li>
-</ul>
-<h3 id="direct-url">Direct URL</h3>
-<p>https://bioinfolabimmuno.github.io/masterclass-ai-genomica/materiali.html</p>
-</section>
-<section id="references" class="slide level2">
-<h2>References</h2>
-<p>Simon E, Swanson K, Zou J.<br>
-<em>Language models for biological research: a primer.</em> Nature Methods, 2024.</p>
-<p>Jun H, Tanaka Y, Johri S, et al.<br>
-<em>A context-augmented large language model for accurate precision oncology medicine recommendations.</em> Cancer Cell, 2026.</p>
+<section id="end" class="slide level2">
+<h2>End</h2>
+<h3 id="ai-augmented-molecular-genomics-masterclass">AI-Augmented Molecular Genomics Masterclass</h3>
+<p>Variant interpretation · fusion analysis · clinical evidence · AI audit</p>
 
 
 </section></section>
